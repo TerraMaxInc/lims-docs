@@ -8,11 +8,11 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: docs/user-reference/user-index.html
+      - href: pages/user-reference/user-index.html
         text: User Reference
-      - href: docs/database/database-index.html
+      - href: pages/database/database-index.html
         text: Database
-      - href: docs/application/application-index.html
+      - href: pages/application/application-index.html
         text: Application
 
 format:

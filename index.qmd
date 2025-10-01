@@ -11,11 +11,11 @@ The user-facing application runs on users' individual computers and connects to 
 
 This documentation is organized into three sections:
 
-[User Resources](/docs/user-resources/user-index.html) is for *non-technical* users who want a reference for how to set up, use, or troubleshoot the application. 
+[User Resources](pages/user-resources/user-index.html) is for *non-technical* users who want a reference for how to set up, use, or troubleshoot the application. 
 
-[Database](docs/database/database-index.html) is for anyone who wants to dig a bit deeper into the backend, whether to actively work on maintenance or updates, or just to understand the structure.  Some parts will require knowledge of *relational databases* or *SQL*, but some parts are meant to be accessible to curious or ambitious *non-technical* users.
+[Database](pages/database/database-index.html) is for anyone who wants to dig a bit deeper into the backend, whether to actively work on maintenance or updates, or just to understand the structure.  Some parts will require knowledge of *relational databases* or *SQL*, but some parts are meant to be accessible to curious or ambitious *non-technical* users.
 
-[Application](docs/application/application-index.html) is for those who want to interact directly with the code of the front-end app to make repairs or updates.  This will all be fairly technical and require *programming knowledge*.
+[Application](pages/application/application-index.html) is for those who want to interact directly with the code of the front-end app to make repairs or updates.  This will all be fairly technical and require *programming knowledge*.
 
 
 ---
