@@ -35,11 +35,18 @@
     "text": "One tab for each “stage”, stages are based off careful discussion with lab about their process; an attempt to model the real process as best as possible with the data structure\noverall process flow\nstages are points in the production cycle have a batch number have either one microbial parent, or one or more microbial ingredients from the previous stage (except mother) are used as a parent or ingredient in the next stage (expect product)\nall of these were pretty intuitive off the exisiting paperwork, except the drydown process splitting into stabilized and powder here the stages were decided because of the structure of the flow: a ferment might be split into many SL, and one SL might be split into many DMP DMP includes the liquid phase right before actual dry down, when some ingredients are added last minute there’s arguably also a DDL stage, except one DDL doesn’t ever split into multiple DPM SL and DMP could be argued as one big stage, except SL DOES sometimes (albeit rarely) get split into multiple DDL & DMP the exact lines of whether an input is added during the SL stage or the liquid half of the DMP stage not your problem, now handled by the auto-generated recipe\nparent/child (one-to-many) relationships vs recipe ingredients (many-to-many)\nlist the stages all out? Diagram? Def Diagram of parent/child vs recipe ingredients"
   },
   {
-    "objectID": "pages/user-resources/deployment.html",
-    "href": "pages/user-resources/deployment.html",
+    "objectID": "pages/user-resources/deployment.html#how-to-set-it-up",
+    "href": "pages/user-resources/deployment.html#how-to-set-it-up",
     "title": "Deployment",
-    "section": "",
-    "text": "The user-facing application is published as two files in total:\n\nOne single executable file for the application itself: LIMS.exe\nOne separate text file that contains information to guide the application’s startup: config.json\n\nIn order to install the application on your computer, you will be sent an email with a DropBox download link. This link will download a zipped folder that contains both necessary files.\nOnly two files, no other background stuff to install or delete\nProcess: I build & export, zip, upload to Dropbox, email ppl a link, the download it, unzip, and put where they want disadvantages: kinda of hacky, your computer thinks its a virus advatages to this: doesn’t require me to learn 10 more things, stays self-contained, easy to remove\nhow files interact, need to be together"
+    "section": "How to set it up",
+    "text": "How to set it up"
+  },
+  {
+    "objectID": "pages/user-resources/deployment.html#why-it-works",
+    "href": "pages/user-resources/deployment.html#why-it-works",
+    "title": "Deployment",
+    "section": "Why it works",
+    "text": "Why it works\nOnly two files, no other background stuff to install or delete\nProcess: I build & export, zip, upload to Dropbox, email ppl a link, the download it, unzip, and put where they want disadvantages: kinda of hacky, your computer thinks its a virus advatages to this: doesn’t require me to learn 10 more things, stays self-contained, easy to remove\nhow files interact, need to be together"
   },
   {
     "objectID": "pages/database/database-index.html",

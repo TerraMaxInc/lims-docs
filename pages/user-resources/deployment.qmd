@@ -2,15 +2,14 @@
 title: "Deployment"
 ---
 
-The user-facing application is published as two files in total:
-
-- One single executable file for the application itself: `LIMS.exe`
-- One separate text file that contains information to guide the application's startup: `config.json`
-
-In order to install the application on your computer, you will be sent an email with a DropBox download link.  This link will download a zipped folder that contains both necessary files.
+## How it should work
 
 
 
+## How to set it up
+
+
+## Why it works
 
 
 
