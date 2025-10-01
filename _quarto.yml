@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: pages/user-reference/user-index.html
+      - href: pages/user-resources/user-index.html
         text: User Reference
       - href: pages/database/database-index.html
         text: Database
