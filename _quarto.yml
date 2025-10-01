@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "LIMS Project Docs"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: docs/user-reference/user-index.html
+        text: User Reference
+      - href: docs/database/database-index.html
+        text: Database
+      - href: docs/application/application-index.html
+        text: Application
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+

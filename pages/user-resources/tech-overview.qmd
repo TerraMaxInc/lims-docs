@@ -1,0 +1,11 @@
+---
+title: "Tech Overview"
+---
+
+Two parts, how they interact, where they live
+
+App
+brief summary/list of things: .NET, C#, WPF, EFCore
+
+Database
+SQL Server

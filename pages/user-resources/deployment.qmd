@@ -1,0 +1,11 @@
+---
+title: "Deployment"
+---
+
+Only two files, no other background stuff to install or delete
+
+Process: I build & export, zip, upload to Dropbox, email ppl a link, the download it, unzip, and put where they want
+    disadvantages: kinda of hacky, your computer thinks its a virus
+    advatages to this: doesn't require me to learn 10 more things, stays self-contained, easy to remove
+
+how files interact, need to be together

@@ -1,0 +1,13 @@
+---
+title: "Vocabulary and Naming Convetions"
+---
+
+Stage
+
+Parent/Child
+
+Ingredient
+
+Recipe
+
+Input

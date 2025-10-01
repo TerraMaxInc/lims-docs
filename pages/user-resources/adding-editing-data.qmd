@@ -1,0 +1,26 @@
+---
+title: "Adding and Editing Data"
+---
+
+parent/child (one-to-many) relationships vs recipe ingredients (many-to-many)
+
+when you enter a new batch in at any stage (except mother) the app will supply a dropdown list of exisitng parents/ingredients in the previous stage for it to be made out of
+when you finalize the a batch at any stage (except product) you make it available to the dropdown in the next stage
+
+batches get REMOVED from the dropdowns (depending on stage) when they
+    run out (qty reaches 0)
+    are marked as inactive
+this is to prevent the dropdowns from becoming bloated with outdated batches, but might sometimes might make things taht SHOULD be there not show up
+
+if you can't find a parent/ingredient:
+    was it entered?
+    was it passed?
+    was it marked as inactive?
+    is its qty at 0?
+
+Zero batches for when the actual knowledge chain is broken: don't have record of a parent or ingredient, but still want to track what you can.  Use VERY sparingly, were mostly just there for the early days when transitioning from previous tracking system
+exception: added as defaults in final product, when you enter an unfinished product as instructions, idea is for those to get replaced with real batches in order to be compelteed
+
+later stages depend on previous stages
+    you can't delete an earlier stage that a later stage is using b/c it would break the chain
+    editing also gets locked down to a minimum

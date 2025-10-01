@@ -1,0 +1,23 @@
+---
+title: "General Use Patterns"
+---
+
+Each tab has particular functions, but some things are general:
+
+How data connection works:
+    on startup, it fetches the data once and then stores a local copy in temporary memory; unless you specifically update it, it will keep using this local copy that is not updated.  this makes it run faster than constant refreshing, but you have to be intentional about refreshing yourself
+    Refresh witht he circle arrow icon in the top right; it takes a minute.  Also doesn't refresh EVERYTHING, just the stuff that changes often.  New microbes or recipes might not update; you need to close and restart the app for that
+    Will do some limited updating after you save, in order to reflect your save and validate you.  Don't assume this is a full refresh
+
+tab patterns:
+    data table of past stuff on the right, form on the left
+    can sort table by any of the columns
+    can double click to select an item and view it in the form on the left
+    can clear out the selected item from the form by clicking "add new" checkbox
+
+    the left has a form for entering new items or viewing/editing details of existing ones. 
+    you can also sort the righthand table by selecting microbe/product:
+        that both filters the table
+        and sets some defaults for the form to enter a new one of those
+        filters down ingredients and recipe stuff to what's relevant for that item
+    clear out the item-specific filtering by clicking "clear" button at bottom

@@ -1,0 +1,25 @@
+---
+title: "LIMS Project Docs"
+---
+
+The LIMS (Laboratory Inventory Management System) project consists of two components:    
+
+- The user-facing application, using **C#** and **xaml** in the **WPF** framework and **.NET** platform.
+- The backend database, stored in a **SQL Server Express 2019 database** on a local server machine.
+
+The user-facing application runs on users' individual computers and connects to the central database so they can view, edit, and add new data about TerraMax production.
+
+This documentation is organized into three sections:
+
+[User Resources](/docs/user-resources/user-index.html) is for *non-technical* users who want a reference for how to set up, use, or troubleshoot the application. 
+
+[Database](docs/database/database-index.html) is for anyone who wants to dig a bit deeper into the backend, whether to actively work on maintenance or updates, or just to understand the structure.  Some parts will require knowledge of *relational databases* or *SQL*, but some parts are meant to be accessible to curious or ambitious *non-technical* users.
+
+[Application](docs/application/application-index.html) is for those who want to interact directly with the code of the front-end app to make repairs or updates.  This will all be fairly technical and require *programming knowledge*.
+
+
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

@@ -1,0 +1,31 @@
+---
+title: "User Resources"
+---
+
+## Quick Links
+
+- [Tech Overview](tech-overview.html)
+- [Deployment](deployment.html)
+- [Versions and Settings](versions-and-settings.html)
+- [General Use Patterns](general-use.html)
+- [Tabs and Stages](tabs-and-stages.html)
+- [Adding and Editing Data](adding-editing-data.html)
+- [Vocabulary and Naming Conventions](vocabulary.html)
+
+## Summary
+
+This section is a colletion of reference documents for non-technical users to help them understand and use LIMS.
+
+Tech overview?
+
+[Deployment](deployment.html) explains the process of downloading and installing the application onto a user's computer.
+
+[Versions and Settings](versions-and-settings.html) discusses how to check that your version is the most up to date, and to change settings that affect Read Only mode, Test Mode, and the daterange of data you want the application to fetch from the database.
+
+[General Use Patterns](general-use.html) explains when and how the app updates the data it displays, how to refresh it yourself, and walks through the things all tabs have in common like filtering by microbe, clearing the form, and sorting the data grid.
+
+[Tabs and Stages](tabs-and-stages.html) describes the flow from mother stock to final product, the stages in this flow, and the logic behind why they're split the way they are.
+
+[Adding and Editing Data](adding-editing-data.html) continues some of the topics from *Tabs and Stages* to go into more detail about how adding or editing data in one tab affects the next, and how the relationships from one stage to the next affects what the app allows you to do.
+
+[Vocabulary and Naming Conventions](vocabulary.html)

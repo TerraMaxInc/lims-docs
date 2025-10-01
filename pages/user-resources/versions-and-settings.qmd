@@ -1,0 +1,18 @@
+---
+title: "Versions and Settings"
+---
+
+the little gear icon
+
+versions
+    title bar tells you what you have
+    versions tells you what the most current is
+    can also look at version history to see what's changed & why you needa given update
+    theoretically, the first number means a breaking change, the second is about necessary updates for errors, the third is small stuff
+
+settings
+    work by editing the config file, that's why it matters
+    date range
+    read only
+    test mode
+

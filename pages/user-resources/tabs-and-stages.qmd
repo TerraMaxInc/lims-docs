@@ -1,0 +1,25 @@
+---
+title: "Tabs and Stages"
+---
+
+One tab for each "stage", stages are based off careful discussion with lab about their process; an attempt to model the real process as best as possible with the data structure
+
+overall process flow
+
+stages are points in the production cycle 
+    have a batch number
+    have either one microbial parent, or one or more microbial ingredients from the previous stage (except mother)
+    are used as a parent or ingredient in the next stage (expect product)
+
+all of these were pretty intuitive off the exisiting paperwork, except the drydown process splitting into stabilized and powder
+    here the stages were decided because of the structure of the flow:
+        a ferment might be split into many SL, and one SL might be split into many DMP
+        DMP includes the liquid phase right before actual dry down, when some ingredients are added last minute
+        there's arguably also a DDL stage, except one DDL doesn't ever split into multiple DPM
+        SL and DMP could be argued as one big stage, except SL DOES sometimes (albeit rarely) get split into multiple DDL & DMP
+        the exact lines of whether an input is added during the SL stage or the liquid half of the DMP stage
+            not your problem, now handled by the auto-generated recipe
+
+parent/child (one-to-many) relationships vs recipe ingredients (many-to-many)
+
+list the stages all out? Diagram?  Def Diagram of parent/child vs recipe ingredients

@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "pages/user-resources/vocabulary.html",
+    "href": "pages/user-resources/vocabulary.html",
+    "title": "Vocabulary and Naming Convetions",
+    "section": "",
+    "text": "Stage\nParent/Child\nIngredient\nRecipe\nInput"
+  },
+  {
+    "objectID": "pages/user-resources/user-index.html",
+    "href": "pages/user-resources/user-index.html",
+    "title": "User Resources",
+    "section": "",
+    "text": "Tech Overview\nDeployment\nVersions and Settings\nGeneral Use Patterns\nTabs and Stages\nAdding and Editing Data\nVocabulary and Naming Conventions"
+  },
+  {
+    "objectID": "pages/user-resources/user-index.html#quick-links",
+    "href": "pages/user-resources/user-index.html#quick-links",
+    "title": "User Resources",
+    "section": "",
+    "text": "Tech Overview\nDeployment\nVersions and Settings\nGeneral Use Patterns\nTabs and Stages\nAdding and Editing Data\nVocabulary and Naming Conventions"
+  },
+  {
+    "objectID": "pages/user-resources/user-index.html#summary",
+    "href": "pages/user-resources/user-index.html#summary",
+    "title": "User Resources",
+    "section": "Summary",
+    "text": "Summary\nThis section is a colletion of reference documents for non-technical users to help them understand and use LIMS.\nTech overview?\nDeployment explains the process of downloading and installing the application onto a user’s computer.\nVersions and Settings discusses how to check that your version is the most up to date, and to change settings that affect Read Only mode, Test Mode, and the daterange of data you want the application to fetch from the database.\nGeneral Use Patterns explains when and how the app updates the data it displays, how to refresh it yourself, and walks through the things all tabs have in common like filtering by microbe, clearing the form, and sorting the data grid.\nTabs and Stages describes the flow from mother stock to final product, the stages in this flow, and the logic behind why they’re split the way they are.\nAdding and Editing Data continues some of the topics from Tabs and Stages to go into more detail about how adding or editing data in one tab affects the next, and how the relationships from one stage to the next affects what the app allows you to do.\nVocabulary and Naming Conventions"
+  },
+  {
+    "objectID": "pages/user-resources/tabs-and-stages.html",
+    "href": "pages/user-resources/tabs-and-stages.html",
+    "title": "Tabs and Stages",
+    "section": "",
+    "text": "One tab for each “stage”, stages are based off careful discussion with lab about their process; an attempt to model the real process as best as possible with the data structure\noverall process flow\nstages are points in the production cycle have a batch number have either one microbial parent, or one or more microbial ingredients from the previous stage (except mother) are used as a parent or ingredient in the next stage (expect product)\nall of these were pretty intuitive off the exisiting paperwork, except the drydown process splitting into stabilized and powder here the stages were decided because of the structure of the flow: a ferment might be split into many SL, and one SL might be split into many DMP DMP includes the liquid phase right before actual dry down, when some ingredients are added last minute there’s arguably also a DDL stage, except one DDL doesn’t ever split into multiple DPM SL and DMP could be argued as one big stage, except SL DOES sometimes (albeit rarely) get split into multiple DDL & DMP the exact lines of whether an input is added during the SL stage or the liquid half of the DMP stage not your problem, now handled by the auto-generated recipe\nparent/child (one-to-many) relationships vs recipe ingredients (many-to-many)\nlist the stages all out? Diagram? Def Diagram of parent/child vs recipe ingredients"
+  },
+  {
+    "objectID": "pages/user-resources/deployment.html",
+    "href": "pages/user-resources/deployment.html",
+    "title": "Deployment",
+    "section": "",
+    "text": "Only two files, no other background stuff to install or delete\nProcess: I build & export, zip, upload to Dropbox, email ppl a link, the download it, unzip, and put where they want disadvantages: kinda of hacky, your computer thinks its a virus advatages to this: doesn’t require me to learn 10 more things, stays self-contained, easy to remove\nhow files interact, need to be together"
+  },
+  {
+    "objectID": "pages/database/database-index.html",
+    "href": "pages/database/database-index.html",
+    "title": "Database",
+    "section": "",
+    "text": "Database stuff"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "LIMS Project Docs",
+    "section": "",
+    "text": "The LIMS (Laboratory Inventory Management System) project consists of two components:\n\nThe user-facing application, using C# and xaml in the WPF framework and .NET platform.\nThe backend database, stored in a SQL Server Express 2019 database on a local server machine.\n\nThe user-facing application runs on users’ individual computers and connects to the central database so they can view, edit, and add new data about TerraMax production.\nThis documentation is organized into three sections:\nUser Resources is for non-technical users who want a reference for how to set up, use, or troubleshoot the application.\nDatabase is for anyone who wants to dig a bit deeper into the backend, whether to actively work on maintenance or updates, or just to understand the structure. Some parts will require knowledge of relational databases or SQL, but some parts are meant to be accessible to curious or ambitious non-technical users.\nApplication is for those who want to interact directly with the code of the front-end app to make repairs or updates. This will all be fairly technical and require programming knowledge.\n\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "pages/application/application-index.html",
+    "href": "pages/application/application-index.html",
+    "title": "Application",
+    "section": "",
+    "text": "Applciation stuff"
+  },
+  {
+    "objectID": "pages/user-resources/adding-editing-data.html",
+    "href": "pages/user-resources/adding-editing-data.html",
+    "title": "Adding and Editing Data",
+    "section": "",
+    "text": "parent/child (one-to-many) relationships vs recipe ingredients (many-to-many)\nwhen you enter a new batch in at any stage (except mother) the app will supply a dropdown list of exisitng parents/ingredients in the previous stage for it to be made out of when you finalize the a batch at any stage (except product) you make it available to the dropdown in the next stage\nbatches get REMOVED from the dropdowns (depending on stage) when they run out (qty reaches 0) are marked as inactive this is to prevent the dropdowns from becoming bloated with outdated batches, but might sometimes might make things taht SHOULD be there not show up\nif you can’t find a parent/ingredient: was it entered? was it passed? was it marked as inactive? is its qty at 0?\nZero batches for when the actual knowledge chain is broken: don’t have record of a parent or ingredient, but still want to track what you can. Use VERY sparingly, were mostly just there for the early days when transitioning from previous tracking system exception: added as defaults in final product, when you enter an unfinished product as instructions, idea is for those to get replaced with real batches in order to be compelteed\nlater stages depend on previous stages you can’t delete an earlier stage that a later stage is using b/c it would break the chain editing also gets locked down to a minimum"
+  },
+  {
+    "objectID": "pages/user-resources/general-use.html",
+    "href": "pages/user-resources/general-use.html",
+    "title": "General Use Patterns",
+    "section": "",
+    "text": "Each tab has particular functions, but some things are general:\nHow data connection works: on startup, it fetches the data once and then stores a local copy in temporary memory; unless you specifically update it, it will keep using this local copy that is not updated. this makes it run faster than constant refreshing, but you have to be intentional about refreshing yourself Refresh witht he circle arrow icon in the top right; it takes a minute. Also doesn’t refresh EVERYTHING, just the stuff that changes often. New microbes or recipes might not update; you need to close and restart the app for that Will do some limited updating after you save, in order to reflect your save and validate you. Don’t assume this is a full refresh\ntab patterns: data table of past stuff on the right, form on the left can sort table by any of the columns can double click to select an item and view it in the form on the left can clear out the selected item from the form by clicking “add new” checkbox\nthe left has a form for entering new items or viewing/editing details of existing ones. \nyou can also sort the righthand table by selecting microbe/product:\n    that both filters the table\n    and sets some defaults for the form to enter a new one of those\n    filters down ingredients and recipe stuff to what's relevant for that item\nclear out the item-specific filtering by clicking \"clear\" button at bottom"
+  },
+  {
+    "objectID": "pages/user-resources/tech-overview.html",
+    "href": "pages/user-resources/tech-overview.html",
+    "title": "Tech Overview",
+    "section": "",
+    "text": "Two parts, how they interact, where they live\nApp brief summary/list of things: .NET, C#, WPF, EFCore\nDatabase SQL Server"
+  },
+  {
+    "objectID": "pages/user-resources/versions-and-settings.html",
+    "href": "pages/user-resources/versions-and-settings.html",
+    "title": "Versions and Settings",
+    "section": "",
+    "text": "the little gear icon\nversions title bar tells you what you have versions tells you what the most current is can also look at version history to see what’s changed & why you needa given update theoretically, the first number means a breaking change, the second is about necessary updates for errors, the third is small stuff\nsettings work by editing the config file, that’s why it matters date range read only test mode"
+  }
+]
