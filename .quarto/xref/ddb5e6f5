@@ -1,1 +1,1 @@
-{"entries":[],"headings":["summary","application","config.json","lims.exe","net","sql-server","database","users","microsoft-login-identity"]}
+{"entries":[],"headings":["summary","application","config.json","lims.exe","sql-server","database","user-access","this-means-that-the-user-doesnt-have-to-go-through-an-extra-login-to-use-the-database.-if-they-have-been-assigned-permission-in-the-server-then-their-original-windows-login-gives-them-access."]}

@@ -75,7 +75,9 @@
     "adding-editing-data.html": "a9791368"
   },
   "pages/user-resources/deployment.qmd": {
-    "deployment.html": "10dc882f"
+    "deployment.html": "10dc882f",
+    "deployment.tex": "ef52deaf",
+    "deployment.pdf": "7ca8950c"
   },
   "pages/user-resources/general-use.qmd": {
     "general-use.html": "39ef2fda"
@@ -87,10 +89,12 @@
     "tech-overview.html": "ddb5e6f5"
   },
   "pages/user-resources/user-index.qmd": {
-    "user-index.html": "9e48e397"
+    "user-index.html": "9e48e397",
+    "user-index.tex": "9ea9f792"
   },
   "pages/user-resources/versions-and-settings.qmd": {
-    "versions-and-settings.html": "bb9ef3d3"
+    "versions-and-settings.html": "bb9ef3d3",
+    "versions-and-settings.tex": "43ba73d2"
   },
   "pages/user-resources/vocabulary.qmd": {
     "vocabulary.html": "ef6ce5a3"

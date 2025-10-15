@@ -4,15 +4,13 @@ title: "Tech Overview"
 
 ## Summary
 
-The LIMS project boils down, essentially, to a user application and a central database of data. 
+The LIMS project is essentially a user application and a central database of data. 
 
 ![Diagram of General Structure](../../images/lims_structure.png)
 
-Though it is possible to interact with the database data directly using SQL queries, but most users will only work through the application, which streamlines common tasks and provides a graphic interface.  The application is installed on each user's computer.
+Though it is possible to interact with the database data directly using SQL queries, most users will only work through the application, which streamlines common tasks and provides a graphic interface.  The application is installed on each user's computer.
 
 The database is stored on a local server machine onsite.  All copies of the application view and edit the same data so users can collaborate in documeting production, each tracking their individual parts in the interconnected process.
-
-The system uses *Integrated Security*, also called *Windows Authentication* to determine if and what a user should be able to access in the SQL Server.  The user has a Windows login that they use to log on to the computer itself, and this same login identity is recognized in the Server .  This means that the user doesn't have to log in a second time to use the database; their original computer login gives them access.
 
 ## Application
 
@@ -36,11 +34,11 @@ The file also contains the `connectionString`, which you cannot change from the 
 
 The entire self-contained app, appart from a few settings.  This application uses C# in the WPF framework on the .NET platform.
 
-#### .NET
+- **.NET** is
 
-- WPF
+- **WPF**
 
-- C# is 
+- **C#** is 
 
 
 
@@ -49,11 +47,12 @@ The entire self-contained app, appart from a few settings.  This application use
 
 ### Database
 
-### Users
+### User Access
 
+The system uses *Integrated Security*, also called *Windows Authentication*, to determine if and what a user should be able to access in the SQL Server.  The user has a Windows login that they use to log on to the computer itself, and this same login identity is recognized in the Server, where it's assigned permissions and roles.  
 
-## Microsoft Login Identity...?
-
+This means that the user doesn't have to go through an extra login to use the database.  If they have been assigned permission in the Server, then their original Windows login gives them access.
+---
 
 Two parts, how they interact, where they live
 

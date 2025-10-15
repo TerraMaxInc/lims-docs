@@ -2,12 +2,14 @@
 title: "LIMS Project Docs"
 ---
 
-The LIMS (Laboratory Inventory Management System) project consists of two components:    
+The LIMS (Laboratory Inventory Management System) is a user-facing application that runs on users' individual computers and connects to a central database so they can view, edit, and add new data about TerraMax production. It mirrors an older system of paper forms to record the same data in a way that makes it easier to look up
+
+It consists of two components:    
 
 - The user-facing application, using **C#** and **xaml** in the **WPF** framework and **.NET** platform.
 - The backend database, stored in a **SQL Server Express 2019 database** on a local server machine.
 
-The user-facing application runs on users' individual computers and connects to the central database so they can view, edit, and add new data about TerraMax production.
+---
 
 This documentation is organized into three sections:
 
@@ -20,5 +22,7 @@ This documentation is organized into three sections:
 
 ---
 
+::: {style="font-size: 70%"}
 This is a Quarto website.
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+:::

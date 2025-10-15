@@ -2,4 +2,27 @@
 title: "Database"
 ---
 
-Database stuff
+Database stuff...
+
+integrated security?
+
+simple vs full structure diagram
+
+batches vs types vs recipes vs ingredients vs cfus vs other tables
+
+naming conventions! \o/  
+stage names, full vs one-word vs abbreviation
+how words are combined
+
+One page per table @_@  maybe can combine samey tables like batches into one page?
+    but weirdy tables like version stuff and cfu_types need their own
+
+
+Should have a how-to section:
+    add new user
+    view activity log
+    add microbe
+    add product type
+    add new recipe version
+    delete a batch
+    query... things?

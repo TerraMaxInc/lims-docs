@@ -121,11 +121,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-it-should-work" id="toc-how-it-should-work" class="nav-link active" data-scroll-target="#how-it-should-work">How it should work</a></li>
-  <li><a href="#how-to-set-it-up" id="toc-how-to-set-it-up" class="nav-link" data-scroll-target="#how-to-set-it-up">How to set it up</a></li>
-  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works">Why it works</a></li>
+  <li><a href="#how-to-set-it-up" id="toc-how-to-set-it-up" class="nav-link active" data-scroll-target="#how-to-set-it-up">How to set it up</a>
+  <ul class="collapse">
+  <li><a href="#dropbox" id="toc-dropbox" class="nav-link" data-scroll-target="#dropbox">1. DropBox</a></li>
+  <li><a href="#download-zipped-folder" id="toc-download-zipped-folder" class="nav-link" data-scroll-target="#download-zipped-folder">2. Download Zipped Folder</a></li>
+  <li><a href="#prepare-local-folder" id="toc-prepare-local-folder" class="nav-link" data-scroll-target="#prepare-local-folder">3. Prepare Local Folder</a></li>
+  <li><a href="#find-zipped-files-in-downloads" id="toc-find-zipped-files-in-downloads" class="nav-link" data-scroll-target="#find-zipped-files-in-downloads">4. Find Zipped Files in Downloads</a></li>
+  <li><a href="#extract-zipped-contents-to-local-folder" id="toc-extract-zipped-contents-to-local-folder" class="nav-link" data-scroll-target="#extract-zipped-contents-to-local-folder">5. Extract Zipped Contents to Local Folder</a></li>
+  </ul></li>
+  <li><a href="#how-it-works" id="toc-how-it-works" class="nav-link" data-scroll-target="#how-it-works">How it works</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="deployment.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -149,17 +155,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="how-it-should-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-it-should-work">How it should work</h2>
-</section>
+<!-- quarto render pages\user-resources\deployment.qmd -->
+<p>This document explains step-by-step how to get the LIMS application set up on your computer, and then gives a brief summary of <em>what files</em> have been installed on your computer, how they interact, and how to delete them safely.</p>
 <section id="how-to-set-it-up" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-set-it-up">How to set it up</h2>
+<p>Updating to later versions is essentially the same process as installing. Because there are only two files, it’s just a matter of deleting the old ones and replacing them with new.</p>
+<section id="dropbox" class="level3">
+<h3 class="anchored" data-anchor-id="dropbox">1. DropBox</h3>
+<ul>
+<li>When I create an update, I put the <code>LIMS.exe</code> and <code>config.json</code> file into a single zipped folder. Then I upload this folder to my personal DropBox so I can give people download links.
+<ul>
+<li>This isn’t the most streamlined or professional system. I do it this way because I like the <strong>clarity</strong> about what you’re actually putting on your computer.</li>
+</ul></li>
+</ul>
 </section>
-<section id="why-it-works" class="level2">
-<h2 class="anchored" data-anchor-id="why-it-works">Why it works</h2>
-<p>Only two files, no other background stuff to install or delete</p>
-<p>Process: I build &amp; export, zip, upload to Dropbox, email ppl a link, the download it, unzip, and put where they want disadvantages: kinda of hacky, your computer thinks its a virus advatages to this: doesn’t require me to learn 10 more things, stays self-contained, easy to remove</p>
-<p>how files interact, need to be together</p>
+<section id="download-zipped-folder" class="level3">
+<h3 class="anchored" data-anchor-id="download-zipped-folder">2. Download Zipped Folder</h3>
+<ul>
+<li>I will send an email containing a download link to all people who need the update. Click the link, and it will open a page like this:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/dropbox_download.jpg" class="img-fluid figure-img"></p>
+<figcaption>DropBox Download Page</figcaption>
+</figure>
+</div>
+<ul>
+<li>Do not open the folder; this is harmless, but it won’t accomplish anything, and will just confuse the issue.</li>
+<li>Rather, click on the download arrow button circled in the image above. THIS will properly download the zipped file onto your computer, into the <code>Downloads</code> folder.</li>
+<li>It may pop up a dialog box asking you to log in or create an account. This is an irritating misdirect; <strong>you do not have to make an account</strong>. There should be a link at the bottom of the dialog to skip or continue on to download.
+<ul>
+<li>Normally downloading executables from a link is a terrible idea, so only do this when it comes directly from me <em>and</em> has some explanation.</li>
+</ul></li>
+</ul>
+</section>
+<section id="prepare-local-folder" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-local-folder">3. Prepare Local Folder</h3>
+<ul>
+<li>Open the folder where you have the older version, and delete the contents so that it’s empty. If you haven’t installed LIMS before, create a new folder somewhere you can remember (this can just be on the Desktop) and name it “LIMS” or something similar.
+<ul>
+<li>You can create a shortcut to the application for daily use, <strong>but I deliberately kept the files simple so that you could manage moving and deleting them yourself</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="find-zipped-files-in-downloads" class="level3">
+<h3 class="anchored" data-anchor-id="find-zipped-files-in-downloads">4. Find Zipped Files in Downloads</h3>
+<ul>
+<li>Open the <code>Downloads</code> folder. You can find it by opening a File Explorer window (the folder icon in the bottom tray); the <code>Downloads</code> folder should be near the top of the folders in the lefthand panel.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/downloads_folder.jpg" class="img-fluid figure-img"></p>
+<figcaption>Find the Downloads folder in the lefthand navigation pannel of File Explorer</figcaption>
+</figure>
+</div>
+<ul>
+<li>The zipped folder you just downloaded should be at the top of the files inside the Downloads folder, named something like <code>TerraMax_LIMS_6.0</code>. Open the zipped folder and find the two files inside.
+<ul>
+<li>You cannot run the LIMS.exe file from here inside this zipped folder, because it’s currently compressed</li>
+</ul></li>
+</ul>
+</section>
+<section id="extract-zipped-contents-to-local-folder" class="level3">
+<h3 class="anchored" data-anchor-id="extract-zipped-contents-to-local-folder">5. Extract Zipped Contents to Local Folder</h3>
+<ul>
+<li>Extract/unzip the files by simply copying them both, and then pasting them into the empty “LIMS” folder from step 3
+<ul>
+<li>There might be some small lag for the files to fully transfer, but it should work right away. As soon as your computer seems doen with the task, try to open the LIMS file. If it doesn’t work, ask for help.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="how-it-works" class="level2">
+<h2 class="anchored" data-anchor-id="how-it-works">How it works</h2>
+<p><code>LIMS.exe</code> and <code>config.json</code> need to be kept together in the same folder in order to work together.</p>
+<p>When the LIMS application starts up, the first thing it does is look for the config file. LIMS does almost all the work, but <code>config.json</code> contains a few instructions about settings and about how to connect to the database. Without a config file, LIMS will default to running in Test Mode, using internal test data instead of connecting to the real database.</p>
+<p>When you change settings from within LIMS, it saves those changes by writing them to the config file. It can’t change its <em>own</em> code once it’s compiled into a single-file .exe, so the external config file is necessary to make settings changeable.</p>
+<p>Beyond these two files, nothing else is added or changed; LIMS doesn’t install hidden components. If you delete the two files, there will be no other trace left on your computer.</p>
+<p><strong>To uninstall, you only need to manually delete these two files.</strong></p>
 
 
 </section>

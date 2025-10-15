@@ -1,6 +1,28 @@
 ---
 title: "Versions and Settings"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
 ---
+
+This document explains how to view LIMS versions and know if you need to update, and how to change application settings.  Both `Versions` and `Settings` are found by clicking on the little gear icon in the top right corner of the program.
+
+![Gear icon to open Versions and Settings](../../images/gear_icon.jpg)
+
+## Versions
+
+Whenever I release a LIMS update, the new version will have a new version number.  Your local copy should tell you what your version number is in the top bar:
+
+![Version settigns in the title bar](../../images/version_title.jpg)
+
+
 
 the little gear icon
 

@@ -1,5 +1,15 @@
 ---
 title: "User Resources"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
 ---
 
 ## Quick Links
@@ -16,7 +26,7 @@ title: "User Resources"
 
 This section is a colletion of reference documents for non-technical users to help them understand and use LIMS.
 
-Tech overview?
+[Tech Overview](tech-overview.html) summarizes how the technical components are structured and work together.
 
 [Deployment](deployment.html) explains the process of downloading and installing the application onto a user's computer.
 
