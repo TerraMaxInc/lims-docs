@@ -1,22 +1,12 @@
 ---
 title: "User Resources"
-format:
-    html: default
-    pdf:
-        documentclass: scrartcl
-        papersize: letter
-        mainfont: "Arial"
-        monofont: "Consolas"
-        monofontoptions: 
-            - Color=79329E
-            - Size=.75em
 ---
 
 ## Quick Links
 
 - [Tech Overview](tech-overview.html)
 - [Deployment](deployment.html)
-- [Versions and Settings](versions-and-settings.html)
+- [Settings and Versions](versions-and-settings.html)
 - [General Use Patterns](general-use.html)
 - [Tabs and Stages](tabs-and-stages.html)
 - [Adding and Editing Data](adding-editing-data.html)
@@ -30,7 +20,7 @@ This section is a colletion of reference documents for non-technical users to he
 
 [Deployment](deployment.html) explains the process of downloading and installing the application onto a user's computer.
 
-[Versions and Settings](versions-and-settings.html) discusses how to check that your version is the most up to date, and to change settings that affect Read Only mode, Test Mode, and the daterange of data you want the application to fetch from the database.
+[Settings and Versions](versions-and-settings.html) discusses how to check that your version is the most up to date, and to change settings that affect Read Only mode, Test Mode, and the daterange of data you want the application to fetch from the database.
 
 [General Use Patterns](general-use.html) explains when and how the app updates the data it displays, how to refresh it yourself, and walks through the things all tabs have in common like filtering by microbe, clearing the form, and sorting the data grid.
 

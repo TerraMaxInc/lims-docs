@@ -48,7 +48,7 @@ Updating to later versions is essentially the same process as installing.  Becau
 
 ### 5. Extract Zipped Contents to Local Folder
 + Extract/unzip the files by simply copying them both, and then pasting them into the empty "LIMS" folder from step 3
-    - There might be some small lag for the files to fully transfer, but it should work right away.  As soon as your computer seems doen with the task, try to open the LIMS file.  If it doesn't work, ask for help.
+    - There might be some small lag for the files to fully transfer, but it should work right away.  As soon as your computer seems done with the task, try to open the LIMS file.  If it doesn't work, ask for help.
 
 ## How it works
 

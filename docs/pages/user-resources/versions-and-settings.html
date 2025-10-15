@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Versions and Settings – LIMS Project Docs</title>
+<title>Settings and Versions – LIMS Project Docs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,7 +121,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#versions" id="toc-versions" class="nav-link active" data-scroll-target="#versions">Versions</a></li>
+  <li><a href="#settings" id="toc-settings" class="nav-link active" data-scroll-target="#settings">Settings</a>
+  <ul class="collapse">
+  <li><a href="#data-connection---use-test-mode" id="toc-data-connection---use-test-mode" class="nav-link" data-scroll-target="#data-connection---use-test-mode">Data Connection - Use Test Mode</a></li>
+  <li><a href="#read-only---is-read-only" id="toc-read-only---is-read-only" class="nav-link" data-scroll-target="#read-only---is-read-only">Read Only - Is Read Only</a></li>
+  <li><a href="#time-span" id="toc-time-span" class="nav-link" data-scroll-target="#time-span">Time Span</a></li>
+  <li><a href="#saving-changes" id="toc-saving-changes" class="nav-link" data-scroll-target="#saving-changes">Saving Changes</a></li>
+  </ul></li>
+  <li><a href="#versions" id="toc-versions" class="nav-link" data-scroll-target="#versions">Versions</a>
+  <ul class="collapse">
+  <li><a href="#version-numbers" id="toc-version-numbers" class="nav-link" data-scroll-target="#version-numbers">Version Numbers</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="versions-and-settings.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -130,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Versions and Settings</h1>
+<h1 class="title">Settings and Versions</h1>
 </div>
 
 
@@ -150,24 +160,78 @@ ul.task-list li input[type="checkbox"] {
 <p>This document explains how to view LIMS versions and know if you need to update, and how to change application settings. Both <code>Versions</code> and <code>Settings</code> are found by clicking on the little gear icon in the top right corner of the program.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../images/gear_icon.jpg" class="img-fluid figure-img"></p>
-<figcaption>Gear icon to open Versions and Settings</figcaption>
+<p><img src="../../images/LIMS_gear_and_version.jpg" class="img-fluid figure-img"></p>
+<figcaption>Version number in the title bar and the gear icon to open Versions and Settings</figcaption>
 </figure>
 </div>
-<section id="versions" class="level2">
-<h2 class="anchored" data-anchor-id="versions">Versions</h2>
-<p>Whenever I release a LIMS update, the new version will have a new version number. Your local copy should tell you what your version number is in the top bar:</p>
+<p>Your local LIMS application should tell you a few things right in the title bar:</p>
+<ul>
+<li>Whether it’s connected to the database or in <em>Test Mode</em></li>
+<li>Whether it’s set to <em>Read Only</em></li>
+<li>Version number</li>
+</ul>
+<section id="settings" class="level2">
+<h2 class="anchored" data-anchor-id="settings">Settings</h2>
+<p>In the window that pops up when you click the gear icon, the first <code>Data Settings</code> tab allows you to change and save a few settings that affect how the LIMS application runs on your computer.</p>
+<section id="data-connection---use-test-mode" class="level3">
+<h3 class="anchored" data-anchor-id="data-connection---use-test-mode">Data Connection - Use Test Mode</h3>
+<p>This is an on-or-off setting that determines whether the LIMS application connects to the database or not. The default normal funcitoning is for this to be <strong>unchecked</strong>. If you check it then it will run in <em>Test Mode</em> and use a small set of internally-generated test data instead of connecting to the database.</p>
+<p><em>Why use Test Mode?</em></p>
+<p><em>Test Mode</em> offers a way to test the functionality of the application without making any changes to the real database. If you want to experiment with how the software works, this is a safe way to do that. It can also be useful for testing certain kinds of errors; if it seems likely that an issue is due to a connection issue, then using <em>Test Mode</em> is a way to check whether the error happens independent of the connection.</p>
+</section>
+<section id="read-only---is-read-only" class="level3">
+<h3 class="anchored" data-anchor-id="read-only---is-read-only">Read Only - Is Read Only</h3>
+<p>This is an on-or-off setting that determines whether the LIMS application is in <em>Read Only</em> mode or not. When I send out updates I will usually set this for you in advance according to what your needs are, but it’s also possible to change it yourself. If it’s checked, then LIMS will run in <em>Read Only</em> so that you can view real data from the database but you can’t edit it.</p>
+</section>
+<section id="time-span" class="level3">
+<h3 class="anchored" data-anchor-id="time-span">Time Span</h3>
+<p>This setting is a number that represents time in days. This will determine the <strong>Date Range</strong> of data that the application fetches from the database. Items like <strong>Mother Stock</strong> and <strong>Working Stock</strong> are all fetched no matter the date range, but for all other <strong>Stages</strong> LIMS will filter out everything that is older than the given number of days.</p>
+<p>The default option is 1 year (365 days), and you’re given another selection option for “All Time”, and a third for a “Custom” time.</p>
+<p>The purpose of this filtering is to improve the applicaiton’s performace. The more data it fetches, the longer it takes to load, and the more data is sitting in memory slowing down your computer. There are <em>some</em> situaitons where you might want to look up data about production from two years ago, but one year is plenty for most daily use.</p>
+</section>
+<section id="saving-changes" class="level3">
+<h3 class="anchored" data-anchor-id="saving-changes">Saving Changes</h3>
+<p>After you select the changes that you want to make to your settings, you need to click the <code>Save Settings</code> button at the bottom of the window. This will save the changes to the <code>config.json</code> file, so that they will be available the next time the application starts up and checks that file for details about how to run.</p>
+<p>You will then be asked whether you want to restart in order to apply them now.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../../images/version_title.jpg" class="img-fluid figure-img"></p>
-<figcaption>Version settigns in the title bar</figcaption>
+<p><img src="../../images/settings_save_changes.jpg" class="img-fluid figure-img"></p>
+<figcaption>Changes Saved Popup asks if you want to restart</figcaption>
 </figure>
 </div>
-<p>the little gear icon</p>
-<p>versions title bar tells you what you have versions tells you what the most current is can also look at version history to see what’s changed &amp; why you needa given update theoretically, the first number means a breaking change, the second is about necessary updates for errors, the third is small stuff</p>
-<p>settings work by editing the config file, that’s why it matters date range read only test mode</p>
+<ul>
+<li><p>If you click <code>No</code>, then LIMS will remain open and operting under the previous set of Settings, until you close it. Your changes will appear the next time you open LIMS.</p></li>
+<li><p>If you click <code>Yes</code>, then LIMS will close, the loading animation will play, and it will re-open with the new Settings in place.</p></li>
+</ul>
+</section>
+</section>
+<section id="versions" class="level2">
+<h2 class="anchored" data-anchor-id="versions">Versions</h2>
+<p>Whenever I release a LIMS update, the new version will have a new version number.</p>
+<p>In the window that pops up when you click the gear icon, the second <code>Versions</code> tab contains more information about versioning.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../images/versions_popup.jpg" class="img-fluid figure-img"></p>
+<figcaption>Versioning tab in Settings and Info popup</figcaption>
+</figure>
+</div>
+<p>Note: This versioning information comes from the database, and so is only available when connected. It will appear blank if you are in <em>Test Mode</em>.</p>
+<p>At the top of the tab it tells you what the current latest release number is, so you can compare it with your own and know whether you’re up to date.</p>
+<p>Below that are two tables; on the left is a list of <strong>Current/Past Updates</strong>. These default to sort of descending order by version number, with the most recent version on top. The table itself tells you what date a given update was released, what section/s the update affected, and then shows the beginning of a longer explanation of what the update did. If you double-click on a particular line in the table, then the full explanation will appear in the white space below so you can read about it.</p>
+<p>In the table on the right is a list of <strong>Planned Updates</strong>, and works the same way as the Current/Past list. In theory it’s a way to track and communicate ideas about future updates, but has gotten a bit stale. All the items left in it are over a year old, and most were specifically requested by an employee who doesn’t work here any more and had somewhat divergent ideas about how LIMS should work. This was used more in the early days of LIMS development.</p>
+<section id="version-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="version-numbers">Version Numbers</h3>
+<p>The version numbers have three parts, which are meant to communicate the importance of the update.</p>
+<ul>
+<li><p>The first digit on the left changing means a <em>breaking</em> change, something that fundamentally affects how the application interacts with the database. This usually involves some change to the backend database as well; either it was changed in a way that will cause older versions of LIMS to malfunction, or older versions of LIMS will add or edit data in a way that will undermine the newer data structure. <strong>Do not use a version with an outdated first digit</strong> unless you are using it in <strong>Read Only</strong> mode and never intend to make edits.</p></li>
+<li><p>The second number is for big fixes or updates that are fairly serious and strongly recommended, but do not fundamentally change how the application interacts with the database. These are usually corrections of fairly serious errors that made LIMS unusable for certain tasks, or else additions of features that are significant but not essential. If your version is out of date in the second digit, you may encounter errors that have been fixed in later versions, but you shouldn’t be doing harm to anything but your own sanity.</p></li>
+<li><p>The third digit is for smaller fixes and edits. These things are likely to be invisible except in specific, niche situations.</p></li>
+</ul>
+<p>The difference between the second and the third level of importance is a bit of a judgement call on my part, but I try to use it to communicate the urgency of the update.</p>
+<p>In general I recommend that you always update to the latest version, so that everyone is using the <em>same</em> version and I don’t have to trouble-shoot errors across a range of versions. But you can use this information about version numbers to judge whether you need to download an update immediately or if it can wait until you’re less busy.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -52,6 +52,7 @@ The entire self-contained app, appart from a few settings.  This application use
 The system uses *Integrated Security*, also called *Windows Authentication*, to determine if and what a user should be able to access in the SQL Server.  The user has a Windows login that they use to log on to the computer itself, and this same login identity is recognized in the Server, where it's assigned permissions and roles.  
 
 This means that the user doesn't have to go through an extra login to use the database.  If they have been assigned permission in the Server, then their original Windows login gives them access.
+
 ---
 
 Two parts, how they interact, where they live
