@@ -116,8 +116,31 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-connection" id="toc-data-connection" class="nav-link active" data-scroll-target="#data-connection">Data Connection</a>
+  <ul class="collapse">
+  <li><a href="#reading-data-from-the-database" id="toc-reading-data-from-the-database" class="nav-link" data-scroll-target="#reading-data-from-the-database">Reading Data FROM the Database</a></li>
+  <li><a href="#making-edits-to-the-database" id="toc-making-edits-to-the-database" class="nav-link" data-scroll-target="#making-edits-to-the-database">Making Edits TO the Database</a></li>
+  </ul></li>
+  <li><a href="#components" id="toc-components" class="nav-link" data-scroll-target="#components">Components</a>
+  <ul class="collapse">
+  <li><a href="#data-grid" id="toc-data-grid" class="nav-link" data-scroll-target="#data-grid">Data Grid</a></li>
+  <li><a href="#entry-form" id="toc-entry-form" class="nav-link" data-scroll-target="#entry-form">Entry Form</a></li>
+  <li><a href="#recipe-box" id="toc-recipe-box" class="nav-link" data-scroll-target="#recipe-box">Recipe Box</a></li>
+  </ul></li>
+  <li><a href="#state-behavior" id="toc-state-behavior" class="nav-link" data-scroll-target="#state-behavior">State Behavior</a>
+  <ul class="collapse">
+  <li><a href="#clear-state" id="toc-clear-state" class="nav-link" data-scroll-target="#clear-state">Clear State</a></li>
+  <li><a href="#microbetype-selected" id="toc-microbetype-selected" class="nav-link" data-scroll-target="#microbetype-selected">Microbe/Type Selected</a></li>
+  <li><a href="#existing-batch-selected" id="toc-existing-batch-selected" class="nav-link" data-scroll-target="#existing-batch-selected">Existing Batch Selected</a></li>
+  </ul></li>
+  <li><a href="#summary-table-of-components-and-states" id="toc-summary-table-of-components-and-states" class="nav-link" data-scroll-target="#summary-table-of-components-and-states">Summary Table of Components and States</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="general-use.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,17 +164,279 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Each tab has particular functions, but some things are general:</p>
-<p>How data connection works: on startup, it fetches the data once and then stores a local copy in temporary memory; unless you specifically update it, it will keep using this local copy that is not updated. this makes it run faster than constant refreshing, but you have to be intentional about refreshing yourself Refresh witht he circle arrow icon in the top right; it takes a minute. Also doesn’t refresh EVERYTHING, just the stuff that changes often. New microbes or recipes might not update; you need to close and restart the app for that Will do some limited updating after you save, in order to reflect your save and validate you. Don’t assume this is a full refresh</p>
-<p>tab patterns: data table of past stuff on the right, form on the left can sort table by any of the columns can double click to select an item and view it in the form on the left can clear out the selected item from the form by clicking “add new” checkbox</p>
-<pre><code>the left has a form for entering new items or viewing/editing details of existing ones. 
-you can also sort the righthand table by selecting microbe/product:
-    that both filters the table
-    and sets some defaults for the form to enter a new one of those
-    filters down ingredients and recipe stuff to what's relevant for that item
-clear out the item-specific filtering by clicking "clear" button at bottom</code></pre>
+<p>This document explains some general patterns and behavior in the LIMS app that are relevant to most users, regardless of which tab you use. I’m diving this into three sections:</p>
+<ul>
+<li><strong>Data Connection</strong>: patterns related to the data connection, how that affects the application’s behavior, and what you need to do about it</li>
+<li><strong>Components</strong>: a list of individual components or entry fields that are common across tabs, like the <code>Data Grid</code> and <code>Save</code> button, and how they work</li>
+<li><strong>State Behavior</strong>: the three “states” <code>Clear</code>, <code>Microbe/Type Selected</code> and <code>Existing Batch Selected</code> and how they affect the way the various components behave</li>
+</ul>
+<section id="data-connection" class="level2">
+<h2 class="anchored" data-anchor-id="data-connection">Data Connection</h2>
+<section id="reading-data-from-the-database" class="level3">
+<h3 class="anchored" data-anchor-id="reading-data-from-the-database">Reading Data FROM the Database</h3>
+<p>If the application is set up correctly and is not in <code>Test Mode</code>, then when it launches it will spend a few seconds fetching data from the database. It does not store data locally between sessions, so it has to fetch <em>everything</em> from scratch in this first load. This is part of why startup is a bit slow.</p>
+<p>Once it loads, it holds the data it fetched in the application’s temporary memory. This data takes up space on your computer while the app is running, but will be erased completely when the app closes and can’t hold on to it anymore.</p>
+<p>Storing the data locally on your computer means that the applciation doesn’t have to spend time fetching it from the database over and over again, so you can filter and sort and view data across all tabs fairly quickly. It does come with two drawbacks, however: - It makes the application take up a lot of space while it’s running. To soften the impact, keep the date range settings limited to only what you actually need, so the app isn’t wasting space on old irrelevant data. <a href="versions-and-settings.html">See Settings and Versions for how to change the date range</a> - It means that the data doesn’t update automatically when someone else makes changes to the central database. Your app is basically using a copy that it made when it started up, and it will gradually get more and more out-of-date the longer it runs without a refresh. To correct for this, you can manually refresh it at any time by clicking the little yellow cricle arrow in the top righthand corner. This refresh will make the app pause for a moment as it fetches the data, like it did during the initial load. It refreshes <em>most</em> data but not quite all; some things that only rarely change, like microbes and recipes, are left out in order to make the refresh a little faster. If you think a refresh didn’t update everything that you expected, try <strong>closing and reopening the program to ensure that <em>everything</em> is up-to-date.</strong></p>
+</section>
+<section id="making-edits-to-the-database" class="level3">
+<h3 class="anchored" data-anchor-id="making-edits-to-the-database">Making Edits TO the Database</h3>
+<p>it is <strong>strongly</strong> recommended that you do a refresh before making changes if you’ve left LIMS open and idle for more than a few mintues. You want to make sure that you’re editing the actual, current database and not an outdated idea of it. It’s unlikely that your change would ever be in conflict with a change someone else made after your last refresh, but it’s not <em>impossible</em>. The SQL database has a fair ability to protect itself from changes that would break its logic, but you might get an error or accidentally duplicate someone else’s work.</p>
+<p>When you click <em>Save</em> or <em>Delete</em>, then the application will connect with the database to apply those changes there. <strong>It will always pop up a window and ask you if you’re sure before it changes the database.</strong> If you click OK, it makes your change and then also performs a limited fetch of just the data that is <em>affected</em> by your change, so that you can see your change applied and know that it was successful. This transaction will also cause the program to pause for a moment.</p>
+<p>These limited updates that happen when you make it seem like the app has updated it’s data, but be aware that it was not a full refresh. If someone else made a change in a different section of the database not immediately related to your change, then that won’t show up until you do a full manualy refresh by clicking the yellow circle arrow.</p>
+</section>
+</section>
+<section id="components" class="level2">
+<h2 class="anchored" data-anchor-id="components">Components</h2>
+<p>The application is organized into tabs that each manage a different <strong>Stage</strong> of production. <a href="tabs-and-stages.html">Read more about Tabs and Stages here</a>. The exception to this is the <code>Search</code> tab at the beginning of the row; this was meant to be a much more robust feature for complex querying of the data, but remains unfinished.</p>
+<p>When you click from one tab to the next, anything you entered into the previous tab is cleared.</p>
+<section id="data-grid" class="level3">
+<h3 class="anchored" data-anchor-id="data-grid">Data Grid</h3>
+<p>Every tab’s basic layout includes a <code>data grid</code> on the left side of the layout.</p>
+<p>By default they will display in reverse chronological order (newest at the top) but you can change the sort order by clicking on the column headers. When you first click on a header, is will sort on that column’s values in <em>ascending</em> order. Click on that same header again and it will sort on the same column in reversed order. Every tab has different columns depending on what’s most relveant to that stage, but all columns can be sorted on.</p>
+<p>All tabs but the <code>Search</code> tab display the batches for that particular stage, with columns for important relevant data like batch number, start date, parent batch, and cfus. To view a more complete set of data about the batch, you can double-click it and the form on the righthand side will populate with the batch details.</p>
+</section>
+<section id="entry-form" class="level3">
+<h3 class="anchored" data-anchor-id="entry-form">Entry Form</h3>
+<p>All tabs but <code>Search</code> have a form on the right side of the display. You can use this form both to enter a new batch, or to view or edit data about an existing batch.</p>
+<p>The specific data fields will be particular to the tab stage, but there are a few things they all share:</p>
+<section id="microbe-or-type-dropdown" class="level4">
+<h4 class="anchored" data-anchor-id="microbe-or-type-dropdown">Microbe or Type Dropdown</h4>
+<p><code>Mother Stock</code> through <code>Ferment</code> all use only one microbe at a time, whereas <code>Stabilized</code> through <code>Final Product</code> have more complex recipes. But for all tabs, selecting an item from this dropdown will filter tge righthand data grid to show only batches of that type, and set up the rest of the form for the potential input of a new batch of that type.</p>
+</section>
+<section id="start-date" class="level4">
+<h4 class="anchored" data-anchor-id="start-date">Start Date</h4>
+<p>All stages have <code>Start Date</code> as a data field, and you can either enter it here by typing or select the date you want int he pop-out calendar. If you enter a date before entering a batch number, then the batch number with auto-populate with a 6-digit code based off that date in the order of YYMMDD. If there is already a batch number entered, then selecting a date will not affect it; the batch and date match by default, but you are allowed to overrride the default.</p>
+</section>
+<section id="batch-number" class="level4">
+<h4 class="anchored" data-anchor-id="batch-number">Batch Number</h4>
+<p>All stages also have a <code>Batch Number</code> field. If you manually type in a 6-digit number here before selecting a date, and the number <em>works</em> as a YYMMDD date, then itwill auto-populate the date to match the number you type. If there is already a date selected, then you can change the batch number without affecting it. Again, the batch and date match by default, but you are allowed to overrride the default.</p>
+</section>
+<section id="initials" class="level4">
+<h4 class="anchored" data-anchor-id="initials">Initials</h4>
+<p>Here you can manually type your initials, to mark who did the work of entering this data. This is a simple text field that does not limit you to a “correct” list of initials; the preferred format is 3 letters, but that’s not enforced.</p>
+</section>
+<section id="notes" class="level4">
+<h4 class="anchored" data-anchor-id="notes">Notes</h4>
+<p>All stages have a <code>Notes</code> field. Inevitably there are edge cases and exceptions that don’t quite fit into the default data fields, so notes allows you to record any other important information that doesn’t fit the normal schema.</p>
+</section>
+<section id="add-new" class="level4">
+<h4 class="anchored" data-anchor-id="add-new">Add New</h4>
+<p>In the top right of the lefthand form is a small checkbox that says <code>Add New</code>. This is marked by default when you first open a tab, and indicates that anything you enter into the form below will be part of a new bathc if you click <code>Save</code>.</p>
+<p>It will <em>unmark</em> itself automatically if you double-click something from the righthand data grid, because then you are viewing an existing batch. If you change or add anything to the form when <code>Add New</code> is unchecked and click <code>Save</code>, then your changes will be saved to the selected existing batch.</p>
+<p>You can <em>manually</em> select this checkbox when you are viewing an existing batch in order to deselect it and return to a cleared form.</p>
+</section>
+<section id="delete-and-clear" class="level4">
+<h4 class="anchored" data-anchor-id="delete-and-clear">Delete and Clear</h4>
+<p>All stages have a button at the bottom of the page which appears as <code>Delete</code> when you have selected a specific batch, and <code>Clear</code> when you have not.</p>
+<p>For <code>Delete</code>, it will be grayed out if you are in Read Only mode, or if the batch you’ve selected can’t be deleted. The system prevents you from deleting batches that have certain complex data connections, to avoid damaging the data structure. The exact rules vary between stages, but in general new and incomplete entries can be deleted, but the older they are the more likely they are to be locked in the deeper data web.</p>
+<p>If you’re entering a new batch, then the Delete button will be a <code>Clear</code> button instead, and simply clear the data you’ve entered into the form.</p>
+</section>
+<section id="save" class="level4">
+<h4 class="anchored" data-anchor-id="save">Save</h4>
+<p>Some stages have more complex entry forms than others, but all of them use the green <code>Save</code> button in the same way. The Save button is always active if you’re not in Read Only mode. If you haven’t completed all necessary parts of the form, then when you click Save a popup will tell you so.</p>
+<p>You can either enter the information for a new batch, or select an existing batch fromt he fighthand data grid and make edits or additon. When you’ve entered your information, you must click the <code>Save</code> button to actually push that information to the database.</p>
+</section>
+</section>
+<section id="recipe-box" class="level3">
+<h3 class="anchored" data-anchor-id="recipe-box">Recipe Box</h3>
+<p>Because of the data structure of the stages, the <code>Stabilized Liquid</code> thought <code>Final Product</code> tabs use the Recipe Box in theior entry forms.</p>
+<p>The recipe box will be blank when you first enter the tab or if you clear the form, but if you select a type from the dropdown it will populate itself according to the appropriate recipe. For <code>DMP</code> this may be empty, depending on what you select.</p>
+<p>The qty values for the infredients will auto-populate with the correct volumes for the given total qty of the batch. <em>While the batch is still new</em>, you can edit the total qty to re-caclulate the ingredient amounts as well. You are allowed to override these values. Once you save your new batch to the database, if you select and view it again, then the form will stop automatically updating the qtys. This is to avoid accidentally editing an overriden value.</p>
+<p>There will be one box for each ingredient in the recipe, with an entry field line. Within each ingredient box you can also click the green plus button to add another line for that ingredient, if you used multiple batches. You can delete extra lines by clicking onthe red minus button ,but only when you have more than one. You can’t delete the last single line, because each ingredient must have at least one item.</p>
+<p>For some stages, you will see batches with a number <code>000000</code>. These 0-batches are meant to be used as a last resort if you don’t have the correct data to fill in that part of the form. Using them creates a sort of cauterized break in the data chain, so only use them if you have no other choice.</p>
+<p>If it’s a microbial ingredient, then you will be given a dropdown of exisiting potential batches. The app’s logic tries to keep these dropdowns up-to-date by only showing batches with a <code>qty</code> of more than 0. If you think something should be showing up in a dropdown and it’s missing, check the batch in its own tab. It’s qty may be the issue, and you can manually adjust it there to make it appear in the dropdown elsewhere.</p>
+<p>If it’s a non-microbial incredient then you can manually type the batch number yourself into a text field. You have to type something for this field, but the application has no error-checking mechanism. You can type “N/A” here if there is no batch number.</p>
+</section>
+</section>
+<section id="state-behavior" class="level2">
+<h2 class="anchored" data-anchor-id="state-behavior">State Behavior</h2>
+<p>For all stages tabs, there are three main <code>states</code> that the tab can be in.</p>
+<ul>
+<li>Clear</li>
+<li>Microbe/Type Selected</li>
+<li>Existing Batch Selected</li>
+</ul>
+<p>These states affect how various elements in the tab appear and behave, and will each be addressed indivudually.</p>
+<section id="clear-state" class="level3">
+<h3 class="anchored" data-anchor-id="clear-state">Clear State</h3>
+<section id="how-to-tell" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-tell">How to Tell</h4>
+<p>In this state, no microbe or type has been selected, and so the data grid on the right side of the display will show *all** batches, not be filtered to a specufruc type. The <code>Add New</code> checkbox will be checked and graye dout so you can’t change it.</p>
+</section>
+<section id="how-to-get-there" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-get-there">How to Get There</h4>
+<p>When you first open a tab, it’s state is clear by default. If you’re in a <code>Microbe/Type Selected</code> state, you can lcik the red <code>Clear</code> button at the bottom of the display. If you’re in a <code>Existing Batch Selected</code> state, you can click the <code>Add New</code> checkbox at the top of the form.</p>
+</section>
+<section id="effect-on-the-data-grid" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-data-grid">Effect on the Data Grid</h4>
+<p>In a <code>Clear</code> state you should see all batches listed in the righthand grid with no filtering.</p>
+</section>
+<section id="effect-on-the-form" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-form">Effect on the Form</h4>
+<p>In a <code>Clear</code> state the form has not adjusted to accomodate a particular microbe or type of batch. You can enter some data, things like <code>Dtart Date</code> or <code>Initials</code> or <code>Notes</code> that are not specific to a batch type, but parent batch dropdopwns and recipe boxes will be empty.</p>
+</section>
+<section id="effect-on-the-deleteclear-button" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-deleteclear-button">Effect on the Delete/Clear Button</h4>
+<p>In a <code>Clear</code> state you should have a red <code>Clear</code> button at the bottom of the form.</p>
+</section>
+<section id="effect-on-the-save-button" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-save-button">Effect on the Save Button</h4>
+<p>In a <code>Clear</code> state you can click the <code>Save</code> button (unless you’re in Read Only mode) but it will trigger a dialog box telling you that you haven’t filled in all necessary fields.</p>
+</section>
+</section>
+<section id="microbetype-selected" class="level3">
+<h3 class="anchored" data-anchor-id="microbetype-selected">Microbe/Type Selected</h3>
+<section id="how-to-tell-1" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-tell-1">How to Tell</h4>
+<p>In this state the righthand datagrid will be filtered to show only batches for the selected microbe or type in the dropdown at the top of the form, but the <code>Add New</code> checkbox will still be checked and disabled.</p>
+</section>
+<section id="how-to-get-there-1" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-get-there-1">How to Get There</h4>
+<p>From a <code>Clear</code> state you can select a microbe or type from the dropdown at the top of the form to switch to a <code>Microbe/Type Selected</code> state oriented around the selected item.</p>
+<p>If you’re in a, <code>Existing Batch Selected</code> state you need to first click <code>Add New</code> to revert to a <code>Clear</code> state, and then select something fromt he dropdown.</p>
+</section>
+<section id="effect-on-the-data-grid-1" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-data-grid-1">Effect on the Data Grid</h4>
+<p>In a <code>Microbe/Type Selected</code> state the data grid is fitlered to show only batches for the selected type.</p>
+</section>
+<section id="effect-on-the-form-1" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-form-1">Effect on the Form</h4>
+<p>In a <code>Microbe/Type Selected</code> state the form may still be mostly empty, but has been readjusted to fit the selected type. If the stage has a recipe, then the recipe box will display it, and any parent or microbial ingredients dropdowns will be populated with appropriate options. Default qtys will be applied, and if ther is a reciple then those qtys will be auto-calculated whenever you change the total qty, though you can override them.</p>
+</section>
+<section id="effect-on-the-deleteclear-button-1" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-deleteclear-button-1">Effect on the Delete/Clear Button</h4>
+<p>In a <code>Microbe/Type Selected</code> state you should still have a red <code>Clear</code> button at the bottom of the form. Clicking it will clear the form and return you to a <code>Clear</code> state.</p>
+</section>
+<section id="effect-on-the-save-button-1" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-save-button-1">Effect on the Save Button</h4>
+<p>In a <code>Microbe/Type Selected</code> state you can click the <code>Save</code> button (unless you’re in Read Only mode) and if you have all the required fields filled it will save your entry as a new batch.</p>
+</section>
+</section>
+<section id="existing-batch-selected" class="level3">
+<h3 class="anchored" data-anchor-id="existing-batch-selected">Existing Batch Selected</h3>
+<section id="how-to-tell-2" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-tell-2">How to Tell</h4>
+<p>In this state the righthand datagrid will be filtered to show only batches for the selected microbe or type in the dropdown at the top of the form, <em>and</em> the <code>Add New</code> checkbox will by unchecked and active. The form will be populated with the existing data, and some fields like the batch number will be grayed out so you can’t change them.</p>
+</section>
+<section id="how-to-get-there-2" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-get-there-2">How to Get There</h4>
+<p>From any state, you can double-click on an item in the righthand data grid to select it and set the tab state around it.</p>
+</section>
+<section id="effect-on-the-data-grid-2" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-data-grid-2">Effect on the Data Grid</h4>
+<p>In a <code>Existing Batch Selected</code> state the data grid is filtered to show only batches for the selected type. Some tabs add additional filtering to show only other batches with the same parent.</p>
+</section>
+<section id="effect-on-the-form-2" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-form-2">Effect on the Form</h4>
+<p>In a <code>Existing Batch Selected</code> state the form will be readjusted to fit the selected batch’s type, and then populated with exisiting data from the database. Some fields will be grayed out so you can’t change them. Qtys will no longer auto-calculate, to avoid accidentally resetting an intentionally overridden value.</p>
+</section>
+<section id="effect-on-the-deleteclear-button-2" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-deleteclear-button-2">Effect on the Delete/Clear Button</h4>
+<p>In a <code>Existing Batch Selected</code> state you should now have a <code>Delete</code> button at the bottom of the form inseatd of <code>Clear</code>. It may be grayed out and inactive if the batch cannot be deleted due to relationships with other data in the database. If it’s red then it’s active and clicking it will delete the selected batch from the database.</p>
+</section>
+<section id="effect-on-the-save-button-2" class="level4">
+<h4 class="anchored" data-anchor-id="effect-on-the-save-button-2">Effect on the Save Button</h4>
+<p>In a <code>Existing Batch Selected</code> state you can click the <code>Save</code> button (unless you’re in Read Only mode) and whatever changes you’ve made will replace the previous data about the selected batch in the database.</p>
+</section>
+</section>
+</section>
+<section id="summary-table-of-components-and-states" class="level2">
+<h2 class="anchored" data-anchor-id="summary-table-of-components-and-states">Summary Table of Components and States</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 15%">
+<col style="width: 34%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Clear State</th>
+<th style="text-align: left;">Microbe/Type Selected State</th>
+<th style="text-align: left;">Existing Batch Selected State</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Data Grid</td>
+<td style="text-align: left;">all/unfiltered</td>
+<td style="text-align: left;">filtered by microbe/type</td>
+<td style="text-align: left;">filtered by type or parent batch</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Entry Form</td>
+<td style="text-align: left;">empty, generic</td>
+<td style="text-align: left;">empty, strucutred for type</td>
+<td style="text-align: left;">populated with existing data, structured for type</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Add New Checkbox</td>
+<td style="text-align: left;">checked, disabled</td>
+<td style="text-align: left;">checked, disabled</td>
+<td style="text-align: left;">unchecked, enabled, clicking stes state to <code>Clear</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Microbe/Type Dropdown</td>
+<td style="text-align: left;">blank, enabled</td>
+<td style="text-align: left;">selected, enabled</td>
+<td style="text-align: left;">selected, disabled</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Batch Number</td>
+<td style="text-align: left;">blank, enabled</td>
+<td style="text-align: left;">blank, enabled</td>
+<td style="text-align: left;">filled, disabled</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Parent Batch</td>
+<td style="text-align: left;">blank, no options</td>
+<td style="text-align: left;">blank, options available</td>
+<td style="text-align: left;">selected, diabled</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Recipe Box</td>
+<td style="text-align: left;">blank, no options</td>
+<td style="text-align: left;">blank, recipe options available</td>
+<td style="text-align: left;">blank or filled, recipe options available</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Save Button</td>
+<td style="text-align: left;">active, dialog tells you not enough data</td>
+<td style="text-align: left;">active, saves new if all required fields filled</td>
+<td style="text-align: left;">active, saves over existing batch</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Clear/Delete Button</td>
+<td style="text-align: left;">Clear, clears form</td>
+<td style="text-align: left;">Clear, clears form, returns state to <code>Clear</code></td>
+<td style="text-align: left;">Delete, may be disabled, deletes selected batch</td>
+</tr>
+</tbody>
+</table>
+<!-- ...
+
+Each tab has particular functions, but some things are general:
+
+tab patterns:
+    data table of past stuff on the right, form on the left
+    can sort table by any of the columns
+    can double click to select an item and view it in the form on the left
+    can clear out the selected item from the form by clicking "add new" checkbox
+
+    the left has a form for entering new items or viewing/editing details of existing ones. 
+    you can also sort the righthand table by selecting microbe/product:
+        that both filters the table
+        and sets some defaults for the form to enter a new one of those
+        filters down ingredients and recipe stuff to what's relevant for that item
+    clear out the item-specific filtering by clicking "clear" button at bottom
+
+    microbe/type select filtering
+    add new/select batch
+    delete/clear -->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

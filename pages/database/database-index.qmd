@@ -14,7 +14,7 @@ naming conventions! \o/
 stage names, full vs one-word vs abbreviation
 how words are combined
 
-One page per table @_@  maybe can combine samey tables like batches into one page?
+One page per table O_o  maybe can combine samey tables like batches into one page?
     but weirdy tables like version stuff and cfu_types need their own
 
 

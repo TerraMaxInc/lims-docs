@@ -80,7 +80,8 @@
     "deployment.pdf": "7ca8950c"
   },
   "pages/user-resources/general-use.qmd": {
-    "general-use.html": "39ef2fda"
+    "general-use.html": "39ef2fda",
+    "general-use.tex": "a306ba60"
   },
   "pages/user-resources/tabs-and-stages.qmd": {
     "tabs-and-stages.html": "e3fd21b2"
