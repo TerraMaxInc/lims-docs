@@ -1,6 +1,18 @@
 ---
 title: "Database"
+# format:
+#     html: default
+#     pdf:
+#         documentclass: scrartcl
+#         papersize: letter
+#         mainfont: "Arial"
+#         monofont: "Consolas"
+#         monofontoptions: 
+#             - Color=79329E
+#             - Size=.75em
 ---
+
+[Database Tables](database-tables.html)
 
 Database stuff...
 

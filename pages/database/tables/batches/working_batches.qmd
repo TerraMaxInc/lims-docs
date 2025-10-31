@@ -1,0 +1,47 @@
+---
+title: "working_batches"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To track all batches of Working Stock and data about their production.
+
+## Referenced By
+
+- primary_batches
+
+## References
+
+- [microbe_types](../types/microbe_types.html).code
+- [mother_batches](mother_batches.html).batch
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| batch | varchar(20) | Primary Key, Not Null | To be the unique identifier for other tables to reference.  It's assumed that working stocks made on the same day will have have the same batch number. |
+| microbe_code | varchar(10) | Foreign Key, Not Null | Which microbe; references the microbe_types table and connects the microbe-specific data there. |
+| mother_batch | varchar(20) | Foreign Key, Not Null | Which mother stock it was made from.  References the mother_stock table and the data connected there. |
+| qty | integer | - | The original number of tubes made of a given batch. |
+| qty_remaining | integer | - | The remaining number of tubes available of a given batch. |
+| start_date | datetime | Not Null | When the batch was made. |
+| initials | varchar(4) | - | Signoff from whoever started the process of making the batch.  3 initials is preferred, but the simple text field does not enfore it. |
+| location | varchar(255) | - | Which box in the freezer the tubes are located in. |
+| check_date | varchar(max) | - | The date when the batch was checked and determined to pass.  |
+| check_initials | Signoff from whoever checked the batch to decide if it passed. 3 initials is preferred, but the simple text field does not enfore it. | - | - |
+| pass | bit | - | Whether the batch batches inspection check.  Allowed to be null until it's checked, then 1 for pass and 0 for fail. |
+| notes | varchar(max) | - | Free text field where users can enter any other data they feel is relevant but not captured by the other fields. |
+| date_created | datetime | - | [Internal field](../../change-tracking.html) to track user activity; tracks when the row was created. |
+| created_by | varchar(50) | - | [Internal field](../../change-tracking.html) to track user activity; tracks the Microsoft user identity of the login that created the row. | 
+| date_edited | datetime | - | [Internal field](../../change-tracking.html) to track user activity; tracks when the row was last edited. |
+| edited_by | varchar(50) | - | [Internal field](../../change-tracking.html) to track user activity; tracks the Microsoft user identity of the login that last edited the row. | 

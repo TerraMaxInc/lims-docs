@@ -99,5 +99,119 @@
   },
   "pages/user-resources/vocabulary.qmd": {
     "vocabulary.html": "ef6ce5a3"
+  },
+  "pages/database/tables.qmd/media_types.qmd": {
+    "media_types.html": "3598642b",
+    "media_types.tex": "9a360e43"
+  },
+  "pages/database/tables.qmd/microbe_types.qmd": {
+    "microbe_types.html": "b42fc96c",
+    "microbe_types.tex": "fe3a0af9"
+  },
+  "pages/database/tables.qmd/input_types.qmd": {
+    "input_types.html": "aec750c1",
+    "input_types.tex": "368ee6cd"
+  },
+  "pages/database/tables.qmd/stabilized_types.qmd": {
+    "stabilized_types.html": "a27bb0f4",
+    "stabilized_types.tex": "681541da"
+  },
+  "pages/database/tables.qmd/bomb_types.qmd": {
+    "bomb_types.html": "ca558ba7",
+    "bomb_types.tex": "7b77f6a1"
+  },
+  "pages/database/database-tables.qmd": {
+    "database-tables.html": "8858fecc",
+    "database-tables.tex": "fb8f7680"
+  },
+  "pages/database/tables/bomb_types.qmd": {
+    "bomb_types.html": "44c35491",
+    "bomb_types.tex": "54ae7837"
+  },
+  "pages/database/tables/input_types.qmd": {
+    "input_types.html": "0ca594e3",
+    "input_types.tex": "a911c31b"
+  },
+  "pages/database/tables/media_types.qmd": {
+    "media_types.html": "20ba3838",
+    "media_types.tex": "786e7487"
+  },
+  "pages/database/tables/microbe_types.qmd": {
+    "microbe_types.html": "3cea8554",
+    "microbe_types.tex": "9999b6a3"
+  },
+  "pages/database/tables/product_types.qmd": {
+    "product_types.html": "72c753c7",
+    "product_types.tex": "73abb8d9"
+  },
+  "pages/database/tables/stabilized_types.qmd": {
+    "stabilized_types.html": "370dd608",
+    "stabilized_types.tex": "82de19fc"
+  },
+  "pages/database/change-tracking.qmd": {
+    "change-tracking.html": "99f2047d",
+    "change-tracking.tex": "a9b3fc7e"
+  },
+  "pages/database/tables/batches/bomb_batches.qmd": {
+    "bomb_batches.html": "0c20b7d7"
+  },
+  "pages/database/tables/batches/ferment_batches.qmd": {
+    "ferment_batches.html": "a092ba7d"
+  },
+  "pages/database/tables/batches/mother_batches.qmd": {
+    "mother_batches.html": "b4c0d143",
+    "mother_batches.tex": "92386b50"
+  },
+  "pages/database/tables/batches/powder_batches.qmd": {
+    "powder_batches.html": "3bb00427"
+  },
+  "pages/database/tables/batches/primary_batches.qmd": {
+    "primary_batches.html": "a28071d7",
+    "primary_batches.tex": "7d59a8e1"
+  },
+  "pages/database/tables/batches/product_batches.qmd": {
+    "product_batches.html": "9919580a"
+  },
+  "pages/database/tables/batches/secondary_batches.qmd": {
+    "secondary_batches.html": "1a78c051"
+  },
+  "pages/database/tables/batches/stabilized_batches.qmd": {
+    "stabilized_batches.html": "619e47c8"
+  },
+  "pages/database/tables/batches/working_batches.qmd": {
+    "working_batches.html": "4104ec7c",
+    "working_batches.tex": "990d23c9"
+  },
+  "pages/database/tables/types/bomb_types.qmd": {
+    "bomb_types.html": "361d3e03",
+    "bomb_types.tex": "cdcac5ec"
+  },
+  "pages/database/tables/types/input_types.qmd": {
+    "input_types.html": "04909155",
+    "input_types.tex": "c32ac650"
+  },
+  "pages/database/tables/types/media_types.qmd": {
+    "media_types.html": "d6b59a5b",
+    "media_types.tex": "ab2b2a48"
+  },
+  "pages/database/tables/types/microbe_types.qmd": {
+    "microbe_types.html": "3211287a",
+    "microbe_types.tex": "30bb6186"
+  },
+  "pages/database/tables/types/product_types.qmd": {
+    "product_types.html": "f619c0e3",
+    "product_types.tex": "afaf09fb"
+  },
+  "pages/database/tables/types/stabilized_types.qmd": {
+    "stabilized_types.html": "ed0363fb",
+    "stabilized_types.tex": "46305348"
+  },
+  "pages/database/batch-numbers.qmd": {
+    "batch-numbers.html": "c8b15838",
+    "batch-numbers.tex": "710724b8"
+  },
+  "pages/database/type-codes.qmd": {
+    "type-codes.html": "0ab95558",
+    "type-codes.tex": "bfc75919"
   }
 }

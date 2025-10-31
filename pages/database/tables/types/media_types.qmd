@@ -1,0 +1,30 @@
+---
+title: "media_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To supply a list of media types for other tables in the database to reference.
+
+This is one of the few tables in the database that has only one simple column.  I contemplated having a code and a separate name, but in this case the data seemed simple enough to not require that.
+
+## Referenced By
+
+- microbe_types.starter_media
+- microbe_types.ferment_media
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| media_name | varchar(20) | Primary Key, Not Null | To be both the primary key and the list of media names |

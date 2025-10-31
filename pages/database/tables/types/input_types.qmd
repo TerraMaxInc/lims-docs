@@ -1,0 +1,34 @@
+---
+title: "input_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To supply a list of inputs for other tables in the database to reference.
+
+This is one of the few tables in the database that has only one simple column.  I contemplated having a code and a separate name, but in this case the data seemed simple enough to not require that.
+
+## Referenced By
+
+- stabilized_input_recipes
+- stabilized_inputs
+- powder_input_recipes
+- powder_inputs
+- product_input_recipes
+- product_inputs
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| input_name | varchar(50) | Primary Key, Not Null | To be both the primary key and the list of input names |

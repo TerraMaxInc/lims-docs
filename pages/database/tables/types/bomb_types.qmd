@@ -1,0 +1,37 @@
+---
+title: "bomb_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To supply a list of types for Bombs.
+
+## Referenced By
+
+- bomb_batches
+- bomb_powder_recipes
+- product_bomb_recipes
+
+## References
+
+- bomb_recipe_versions.code
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| code | varchar(20) | Primary Key, Not Null | To be the primary key for other tables to reference |
+| bomb_name | varchar(50) | Not Null | To hold the full name of the bomb type |
+| default_qty | decimal(8,8) | Not Null | The qty that should autopopulate in the application when creating a new bomb batch |
+| unit | varchar(5) | Not Null | The unit of the batch qty, usually 'g' |
+| current_version | varchar(10) | Foreign Key, Not Null | The version of the bomb recipe to be used when autopopulating the ingredients in a new bomb batch |

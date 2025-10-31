@@ -1,0 +1,39 @@
+---
+title: "bomb_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To supply a list of types for Final Products.
+
+## Referenced By
+
+- product_batches
+- product_ferment_recipes
+- product_bomb_recipes
+- product_input_recipes
+- product_cfu_types
+
+## References
+
+- product_recipe_versions.code
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| code | varchar(20) | Primary Key, Not Null | To be the primary key for other tables to reference |
+| product_name | varchar(50) | Not Null | To hold the full name of the final product type |
+| product_type | varchar(20) | Not Null | "Liquid" or "Dry" |
+| default_volume | integer | Not Null | The qty that should autopopulate in the application when creating a new final product batch |
+| current_version | varchar(20) | Not Null | - |

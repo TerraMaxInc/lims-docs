@@ -1,0 +1,43 @@
+---
+title: "microbe_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To supply a list of microbes for other tables in the database to reference, along with data about how it should be used in various places.
+
+The working and mother stocks, primary and secondary starter cultures, and ferment batches all contain only one microbe, and so all of these can by defined by their microbe type.
+
+## Referenced By
+
+- mother_batches.microbe_code
+- working_batches.microbe_code
+- primary_batches.microbe_code
+- secondary_batches.microbe_code
+- ferment_batches.microbe_code
+
+## References
+
+- [media_types](media_types.html).media_name
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| code | varchar(12) | Primary Key, Not Null | To be the unique identifier for other tables to reference |
+| microbe_name |varchar(50) | Foreign Key, Not Null | To hold the full name of the microbe |
+| stock_shelflife | integer | - | How long before the mother or working stock expires, in days |
+| starter_shelflife | integer | - | How long before the primary or secondary start cultuer expires, in days |
+| ferment_shelflife | integer | - | How long before the ferment expires, in days |
+| starter_media | varhcar(20)| Foreign Key | The preferred media for primary and secondary starter cultures |
+| ferment_media | varchar(20) | Foreign Key | The preferred media for ferments |

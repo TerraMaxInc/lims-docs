@@ -1,0 +1,21 @@
+---
+title: "Type Codes"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Microbe Codes
+
+## Stabilized Codes
+
+## Bomb Codes
+
+## Product Codes

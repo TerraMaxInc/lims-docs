@@ -1,0 +1,37 @@
+---
+title: "stabilized_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To supply a list of types for both the Stabilized Liquids and Dry Microbial Powders, and relevant data about those types.  These two stages can share a type because they always contain the same combinations of microbes.
+
+## Referenced By
+
+- stabilized_batches
+- stabilized_ferment_recipes
+- tabilized_input_recipes
+- powder_batches
+- powder_input_recipes
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| code | varchar(20) | Primary Key, Not Null | To be the primary key for other tables to reference |
+| stabilized_name | varchar(50) | Not Null | To hold the full name of the type |
+| dafault_stabilized_qty | decimal(8,8) | Not Null | The qty that should autopopulate in the application when creating a new stabilied liquid batch |
+| default_powder_qty | decimal(8,8) | Not Null | The qty that should autopopulate in the application when creating a new dry microbial powder batch |
+| unit | varchar(5) | Not Null | The unit of the batch qty, usually 'mL' for stabilized liquid and 'g' for DMP |
+| stabilized_shelf_life | integer | - | How long before a stabilized liquid of this type expires, in days |
+| powder_shelf_life | integer | - | How long before a DMP of this type expires, in days |

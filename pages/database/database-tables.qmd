@@ -1,0 +1,42 @@
+---
+title: "bomb_types"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Types Tables
+
+- [media_types](tables/types/media_types.html)
+- [microbe_types](tables/types/microbe_types.html)
+- [input_types](tables/types/input_types.html)
+- [stabilized_types](tables/types/stabilized_types.html)
+- [bomb_types](tables/types/bomb_types.html)
+- [product_types](tables/types/product_types.html)
+
+## Batch Tables
+
+- [mother_batches](tables/batches/mother_batches.html)
+- [working_batches](tables/batches/working_batches.html)
+- [primary_batches](tables/batches/primary_batches.html)
+- [secondary_batches](tables/batches/secondary_batches.html)
+- [ferment_batches](tables/batches/ferment_batches.html)
+- [stabilized_batches](tables/batches/stabilized_batches.html)
+- [powder_batches](tables/batches/stabilized_batches.html)
+- [bomb_batches](tables/batches/bomb_batches.html)
+- [product_batches](tables/batches/product_batches.html)
+
+## Recipe Tables
+
+## Ingredients Tables
+
+## CFU Tables
+
+## Other Tables

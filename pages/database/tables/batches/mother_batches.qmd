@@ -1,0 +1,35 @@
+---
+title: "mother_batches"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To track all batches of Mother Stock.
+
+## Referenced By
+
+- working_batches
+
+## References
+
+- microbe_types.code
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| batch | varchar(20) | Primary Key, Not Null | To be the unique identifier for other tables to reference.  It's assumed that mother stocks made on the same day will have have the same batch number. |
+| microbe_code | varchar(10) | Foreign Key, Not Null | Which microbe;  references the microbe_types table and connects the microbe-specific data there. |
+| qty | integer | - | The number of tubes originally made. |
+| qty_remaining | integer | - | The number of tubes still available. |
+| start_date | datetime | Not Null | When the mother stock was made or obtained. |

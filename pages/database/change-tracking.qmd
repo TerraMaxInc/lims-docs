@@ -1,0 +1,38 @@
+---
+title: "Change Tracking"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+Batch and ingredient tables have internal tracking fields with data that is not externally shown in the application.  
+
+The earliest conception of LIMS was based only on the data being tracked in the existing paperwork, and so things like date and initials were left as entry fields where the user could set them manually.  But sometimes a user might enter data on a different day than they did the work, or on behalf of a different user and mark the other person's initials for them.  
+
+It seemed reasonable to leave that system in place since it was suited to tracking the *work*, but I later realized that I also wanted to track changes to the *database*.
+
+LIMS update 3.6 on 2/20/2024 implemented the client side of this tracking feature, and modified the various write functions to long this tracking data to new tracking fields.  For this reason, batches from before that point will have nulls in these fields.
+
+These fields are found in:
+
+- [working_batches](tables/batches/working_batches.html)
+- [primary_batches](tables/batches/primary_batches.html)
+- [secondary_batches](tables/batches/secondary_batches.html)
+- [ferment_batches](tables/batches/ferment_batches.html)
+- []
+
+The fields are:
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| date_created | datetime | - | The exact date and time when the row was writen to the database |
+| created_by | varchar(50) | - | The Microsoft user identity of the login that made the entry |
+| date_edited | datetime | - | The exact date and time when the row was last edited |
+| edited_by | varchar(50) | - | The Microsoft user identity of the login that made the last edit |
