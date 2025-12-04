@@ -1,5 +1,10 @@
 ---
 title: "Application"
+format: html
 ---
 
-Applciation stuff
+This set of documents explains the refactored version of the LIMS WPF.
+
+I decided not to document the original WPF because it wouldn't be worth the time and effort given that I intend to refactor it anyway.  I do also someday hope to refactor out of WPF and into Tauri, but that is a very long-term project that will require me to learn a lot more about Rust before I can start.  A middle-term refactor has seemed increasingly necessary as new needs emerged, and documenting the structure as I rebuild it is a way to plan and be intentional about it.
+
+[Data Structures](data-structures/data-structures-index.qmd)

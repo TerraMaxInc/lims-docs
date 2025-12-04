@@ -1,0 +1,44 @@
+---
+title: "stabilized_batches"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+## Purpose
+
+To track all batches of Stabilized Liquid and data about their production.
+
+## Referenced By
+
+- powder_stabilizeds
+
+## References
+
+- stabilized_types.code
+
+## Columns
+
+| column name | data type | constraints | purpose |
+|:------------|:----------|:------------|:--------|
+| batch | varchar(21) | primary key, not null | The unique identifier for other tables to reference |
+| microbe_code | - | - | - |
+| working_batch | - | - | - |
+| media_type | - | - | - |
+| media_batch | - | - | - |
+| qty | - | - | - |
+| qty_remaining | - | - | - |
+| start_date | - | - | - |
+| initials | - | - | - |
+| location | - | - | - |
+| check_date | - | - | - |
+| check_initials | - | - | - |
+| pass | - | - | - |
+| notes | - | - | - |

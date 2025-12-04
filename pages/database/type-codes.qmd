@@ -19,3 +19,9 @@ format:
 ## Bomb Codes
 
 ## Product Codes
+
+I determined that 4 characters were necessary for dry products, but not for liquid where green and conventional have the same recipe.
+
+I deviated a bit from the structure in the case of white label products for DEI and Talc, because I wanted to be able to see and srot on the brand, and I *didn't* want them using up extra letters.
+
+This has begun to break down a little as the list of products grew--ultimately there care only 26 available letters, and I've begun to have to reach for the leftovers.

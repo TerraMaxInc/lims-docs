@@ -1,20 +1,4 @@
----
-title: "working_batches"
-format:
-    html: default
-    pdf:
-        documentclass: scrartcl
-        papersize: letter
-        mainfont: "Arial"
-        monofont: "Consolas"
-        monofontoptions: 
-            - Color=79329E
-            - Size=.75em
----
 
-## Purpose
-
-To track all batches of Working Stock and data about their production.
 
 ## Referenced By
 

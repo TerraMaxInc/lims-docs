@@ -1,0 +1,159 @@
+---
+title: "Batch Classes"
+format: html
+---
+
+This document describes the structure of the batch classes in the C# WPF LIMS application.
+
+# Purpose
+Batch classes line up with SQL tables that end in '_batch'.  These tables contain data about individual batches, and users add to them regularly.  They define what data the users can add.
+
+There are two main types of batch classes; those that have a single parent that can be contained in a simple text property that represents a foreign key, and those that have a variable set of ingredients that have to be listed in other tables.
+
+In the below list, ALL properties of a class are show even if they're defined in a parenbt class, so as to make a more useful reference.
+
+# Parent Classes
+## StageBatch
+```{C#}
+public class StageBatch
+{
+    public string Batch { get; set; } = null!;
+    public string TypeCode { get; set; } = null!;
+    public string? Initials { get; set; }
+    public DateTime StartDate { get; set; }
+    public string? Notes { get; set; }
+}
+```
+## BatchWithParent
+```{C#}
+public class BatchWithParent : StageBatch
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public string ParentBatch { get; set; } = null!;
+}
+```
+## BatchWithIngredients
+```{C#}
+public class BatchWithIngredients : StageBatch
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public IEnumerable<BatchIngredient>? Inputs { get; set; }
+    public IEnumerable<BatchIngredient>? MicrobialIngredients { get; set; }
+}
+```
+
+# Final Classes
+## MotherBatch
+```{C#}
+public class MotherBatch : StageBatch
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public int Qty {get; set; }
+    public int QtyRemaining { get; set; }   
+}
+```
+## WorkingBatch
+```{C#}
+public class WorkingBatch : BatchWithParent
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public string ParentBatch { get; set; } = null!;// From BatchWithParent
+    public string? Location { get; set; }
+    public DateTime? CheckDate { get; set; }
+    public int? Qty { get; set; }
+    public int? QtyRemaining { get; set; }
+    public string? CheckInitials { get; set; }
+    public bool? Pass {  get; set; }
+}
+```
+## PrimaryBatch
+```{C#}
+public class PrimaryBatch : BatchWithParent
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public string ParentBatch { get; set; } = null!;// From BatchWithParent
+    public string MediaType { get; set; } = null!;
+    public string MediaBatch { get; set; } = null!;
+    public DateTime? CheckDate { get; set; }
+    public string? CheckInitials {  get; set; }
+    public bool? Empty { get; set; }
+    public bool? Pass { get; set; }
+}
+```
+## SecondaryBatch
+```{C#}
+public class SecondaryBatch : BatchWithParent
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public string ParentBatch { get; set; } = null!;// From BatchWithParent
+    public string MediaType { get; set; } = null!;
+    public string MediaBatch { get; set; } = null!;
+    public DateTime? CheckDate { get; set; }
+    public string? CheckInitials {  get; set; }
+    public bool? Empty { get; set; }
+    public bool? Pass { get; set; }
+}
+```
+## FermentBatch
+```{C#}
+public class FermentBatch : BatchWithParent
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public string ParentBatch { get; set; } = null!;// From BatchWithParent
+    public string MediaType { get; set; } = null!;
+    public string MediaBatch { get; set; } = null!;
+    public DateTime? CheckDate { get; set; }
+    public string? CheckInitials { get; set; }
+    public bool? Pass {  get; set; }
+    public decimal? Qty { get; set; } 
+    public decimal? QtyRemaining { get; set; }
+    public IEnumerable<SimpleCfu>? Cfus {  get; set; }
+}
+```
+## StabilizedBatch
+```{C#}
+public class StabilizedBatch : BatchWithIngredients
+{
+    public string Batch { get; set; } = null!;      // From StageBatch
+    public string TypeCode { get; set; } = null!;   // From StageBatch
+    public string? Initials { get; set; }           // From StageBatch
+    public DateTime StartDate { get; set; }         // From StageBatch
+    public string? Notes { get; set; }              // From StageBatch
+    public string SourceAll { get; set; } = null!;
+    public string SourceRemaining { get; set; } = null!;
+    public decimal? Qty { get; set; }
+    public decimal? QtyRemaining { get; set; }
+    public string Unit { get; set; } = null!;
+    public DateTime StartTime { get; set; }
+    public IEnumerable<BatchIngredient>? Inputs { get; set; }   // From BatchWithIngredients
+    public IEnumerable<BatchIngredient>? MicrobialIngredients { get; set; }   // From BatchWithIngredients
+}
+```

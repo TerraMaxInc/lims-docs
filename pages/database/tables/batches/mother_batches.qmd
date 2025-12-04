@@ -24,6 +24,12 @@ To track all batches of Mother Stock.
 
 - microbe_types.code
 
+## Primary Key
+
+The batch number is used as the primary key.  Later stages had more organic batch numbering systems that could be coopted by the LIMS system, but in the case of mother and working stocks, different batches were only differentiated by the date they were made.  
+
+To create batch numbers that could work in LIMS, I translated those dates into the YYMMDD format used elsewhere, and added 
+
 ## Columns
 
 | column name | data type | constraints | purpose |

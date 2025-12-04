@@ -1,0 +1,84 @@
+---
+title: "Types Classes"
+format: html
+---
+
+This document decribes the structure of the type classes in the C# WPF LIMS application.
+
+# Purpose
+Types classes line up with SQL tables that end in '_type'.  These are static tables that users do not regularly add to; they are only edited when new products are added or processes are changed.  They define data about general categories.
+
+    In the below list, ALL properties of a class are show even if they're defined in a parenbt class, so as to make a more useful reference.
+
+# Parent Classes
+## NameType
+```{C#}
+public class NameType
+{
+    public string Name { get; set; } = null!;
+}
+```
+## CodeNameType
+```{C#}
+public class CodeNameType : CodeNameType
+{
+    public string Name { get; set; } = null!; // From NameType
+    public string Code { get; set; } = null!;    
+}
+```
+
+# Final Classes
+## InputType
+```{C#}
+public class InputType : NameType
+{
+    public string Name { get; set; } = null!; // From NameType
+}
+```
+## MediaType
+Used by PrimaryBatch, SecondaryBatch, and FermentBatch
+```{C#}
+public class MediaType : NameType
+{
+    public string Name { get; set; } = null!; // From NameType
+}
+```
+## MicrobeType
+Defines type of MotherBatch, WorkingBatch, PrimaryBatch, SecondaryBatch, and FermentBatch
+```{C#}
+public class MicrobeType : CodeNameType
+{
+    public string Name { get; set; } = null!; // From NameType
+    public string Code { get; set; } = null!; // From CodeNameType
+    public TimeSpan StockShelfLife { get; set; }
+    public TimeSpan StarterShelfLife { get; set; }
+    public TimeSpan FermentShelfLife { get; set; }
+    public string? StarterMedia { get; set; }
+    public string? FermentMedia {get; set; }
+}
+```
+## StabilizedType
+Defines StabilizedBatch and PowderBatch
+```{C#}
+public class StabilizedType : CodeNameType
+{
+    public string Name { get; set; } = null!; // From NameType
+    public string Code { get; set; } = null!; // From CodeNameType
+    public decimal DefaultStabilizedQty { get; set; }
+    public decimal DefaultPowderQty { get; set; }
+    public string Unit { get; set; } = null!;
+    public int StabilizedShelfLife { get; set; }
+    public int PowderShelfLife { get; set; }
+    public IEnumerable<RecipeIngredient>? StabilizedFermentRecipes { get; set; }
+    public IEnumerable<RecipeIngredient>? StabilizedInputRecipes { get; set; }
+    public IEnumerable<RecipeIngredient>? PowderInputRecipes { get; set; }
+}
+```
+## BombType
+```{#C}
+
+```
+## ProductType
+```{#C}
+
+```

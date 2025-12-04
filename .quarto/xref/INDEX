@@ -153,30 +153,36 @@
     "change-tracking.tex": "a9b3fc7e"
   },
   "pages/database/tables/batches/bomb_batches.qmd": {
-    "bomb_batches.html": "0c20b7d7"
+    "bomb_batches.html": "0c20b7d7",
+    "bomb_batches.tex": "0d85ea98"
   },
   "pages/database/tables/batches/ferment_batches.qmd": {
-    "ferment_batches.html": "a092ba7d"
+    "ferment_batches.html": "a092ba7d",
+    "ferment_batches.tex": "2fb7d811"
   },
   "pages/database/tables/batches/mother_batches.qmd": {
     "mother_batches.html": "b4c0d143",
     "mother_batches.tex": "92386b50"
   },
   "pages/database/tables/batches/powder_batches.qmd": {
-    "powder_batches.html": "3bb00427"
+    "powder_batches.html": "3bb00427",
+    "powder_batches.tex": "2fb17e12"
   },
   "pages/database/tables/batches/primary_batches.qmd": {
     "primary_batches.html": "a28071d7",
     "primary_batches.tex": "7d59a8e1"
   },
   "pages/database/tables/batches/product_batches.qmd": {
-    "product_batches.html": "9919580a"
+    "product_batches.html": "9919580a",
+    "product_batches.tex": "66506f90"
   },
   "pages/database/tables/batches/secondary_batches.qmd": {
-    "secondary_batches.html": "1a78c051"
+    "secondary_batches.html": "1a78c051",
+    "secondary_batches.tex": "24712158"
   },
   "pages/database/tables/batches/stabilized_batches.qmd": {
-    "stabilized_batches.html": "619e47c8"
+    "stabilized_batches.html": "619e47c8",
+    "stabilized_batches.tex": "5cb47df9"
   },
   "pages/database/tables/batches/working_batches.qmd": {
     "working_batches.html": "4104ec7c",
@@ -213,5 +219,18 @@
   "pages/database/type-codes.qmd": {
     "type-codes.html": "0ab95558",
     "type-codes.tex": "bfc75919"
+  },
+  "pages/application/data-structures/data-structures-index.qmd": {
+    "data-structures-index.html": "2ba872b7"
+  },
+  "pages/database/history.qmd": {
+    "history.html": "fe801b53",
+    "history.tex": "ea6e8681"
+  },
+  "pages/application/data-structures/type-classes.qmd": {
+    "type-classes.html": "51c39712"
+  },
+  "pages/application/data-structures/batch-classes.qmd": {
+    "batch-classes.html": "2ec7a107"
   }
 }

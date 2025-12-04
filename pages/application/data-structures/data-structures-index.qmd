@@ -1,0 +1,57 @@
+---
+title: "Data Structures"
+format: html
+---
+
+This set of documents discusses the structure of data in the C# WPF LIMS application.  
+
+The original LIMS data objects were much more deeply intertwined, so that a ProductBatches object contained the full objects for all its ingredients.  This was based off tutorials I'd seen of much simpler data sets, when I was still very inexperienced with application development.  Since then I've done work in TyeScript and React that has made me more thoughtful and intentional about the costs of reduncant fetching and about data structures in general, and I now believe it would be easier and more efficient to keep the data objects simple, and do the work of connecting up foreign keys later as needed.
+
+My general principle is to only make the connections one layer deep; that is, data from one table can only have properties that are full data objects from other tables when that data doesn't have it's own sub-objects.  The data from one table must belong exlusively to one other table, no interconnecting structures.  Examples:
+- FermentBatch owns FermentCFU
+- ProductBatch fully owns ProductFerments, ProductBombs and ProductInputs
+
+Tables that belong to other tables aren't fetched independently; they are only properties of the data objects that own them.
+
+The underlying logic of the database, however, still informs the data objects.  Thus, like with the database, there are these main types of objects:
+
+# Types
+[Type Classes](type-classes.qmd)
+
+## Parent Classes
+- [NameType](type-classes.qmd#nametype)
+- [CodeNameType (NameType)](type-classes.qmd#codenametype)
+
+## Final Classes
+- [InputType (NameType)](type-classes.qmd#inputtype)
+- [MediaType (NameType)](type-classes.qmd#mediatype)
+- [MicrobeType (CodeNameType)](type-classes.qmd#microbetype)
+- [StabilizedType (CodeNameType)](type-classes.qmd#stabilizedtype)
+- BombType (CodeNameType)
+- ProductType (CodeNameType)
+
+# Batches
+## Parent Classes
+- [StageBatch](batch-classes.qmd#stagebatch)
+- [BatchWithParent (StageBatch)](batch-classes.qmd#batchwithparent)
+- [BatchWithIngredients (StageBatch)](batch-classes.qmd#batchwithingredients)
+
+## Final Classes
+- [MotherBatch (BatchWithParent)](batch-classes.qmd#motherbatch)
+- [WorkingBatch (BatchWithParent)](batch-classes.qmd#workingbatch)
+- [PrimaryBatch (BatchWithParent)](batch-classes.qmd#primarybatch)
+- [SecondaryBatch (BatchWithParent)](batch-classes.qmd#secondarybatch)
+- [FermentBatch (BatchWithParent)](batch-classes.qmd#fermentbatch)
+- [StabilizedBatch (BatchWithIngredients)](batch-classes.qmd#stabilizedbatch)
+- PowderBatch (BatchWithIngredients)
+- BombBatch (BatchWithIngredients)
+- ProductBatch (BatchWithIngredients)
+
+# Ingredients
+- RecipeIngredient
+- BatchIngredient
+
+# CFUs
+- SimpleCfus
+
+# Other

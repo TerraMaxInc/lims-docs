@@ -74,7 +74,7 @@
     "href": "pages/database/type-codes.html#product-codes",
     "title": "Type Codes",
     "section": "Product Codes",
-    "text": "Product Codes"
+    "text": "Product Codes\nI determined that 4 characters were necessary for dry products, but not for liquid where green and conventional have the same recipe.\nI deviated a bit from the structure in the case of white label products for DEI and Talc, because I wanted to be able to see and srot on the brand, and I didn’t want them using up extra letters.\nThis has begun to break down a little as the list of products grew–ultimately there care only 26 available letters, and I’ve begun to have to reach for the leftovers."
   },
   {
     "objectID": "pages/database/tables/types/product_types.html",
@@ -175,6 +175,377 @@
     "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\ncode\nvarchar(20)\nPrimary Key, Not Null\nTo be the primary key for other tables to reference\n\n\nbomb_name\nvarchar(50)\nNot Null\nTo hold the full name of the bomb type\n\n\ndefault_qty\ndecimal(8,8)\nNot Null\nThe qty that should autopopulate in the application when creating a new bomb batch\n\n\nunit\nvarchar(5)\nNot Null\nThe unit of the batch qty, usually ‘g’\n\n\ncurrent_version\nvarchar(10)\nForeign Key, Not Null\nThe version of the bomb recipe to be used when autopopulating the ingredients in a new bomb batch"
   },
   {
+    "objectID": "pages/database/tables/batches/stabilized_batches.html",
+    "href": "pages/database/tables/batches/stabilized_batches.html",
+    "title": "stabilized_batches",
+    "section": "",
+    "text": "To track all batches of Stabilized Liquid and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/stabilized_batches.html#purpose",
+    "href": "pages/database/tables/batches/stabilized_batches.html#purpose",
+    "title": "stabilized_batches",
+    "section": "",
+    "text": "To track all batches of Stabilized Liquid and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/stabilized_batches.html#referenced-by",
+    "href": "pages/database/tables/batches/stabilized_batches.html#referenced-by",
+    "title": "stabilized_batches",
+    "section": "Referenced By",
+    "text": "Referenced By\n\npowder_stabilizeds"
+  },
+  {
+    "objectID": "pages/database/tables/batches/stabilized_batches.html#references",
+    "href": "pages/database/tables/batches/stabilized_batches.html#references",
+    "title": "stabilized_batches",
+    "section": "References",
+    "text": "References\n\nstabilized_types.code"
+  },
+  {
+    "objectID": "pages/database/tables/batches/stabilized_batches.html#columns",
+    "href": "pages/database/tables/batches/stabilized_batches.html#columns",
+    "title": "stabilized_batches",
+    "section": "Columns",
+    "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
+  },
+  {
+    "objectID": "pages/database/tables/batches/product_batches.html",
+    "href": "pages/database/tables/batches/product_batches.html",
+    "title": "product_batches",
+    "section": "",
+    "text": "To track all batches of Final Products and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/product_batches.html#purpose",
+    "href": "pages/database/tables/batches/product_batches.html#purpose",
+    "title": "product_batches",
+    "section": "",
+    "text": "To track all batches of Final Products and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/product_batches.html#referenced-by",
+    "href": "pages/database/tables/batches/product_batches.html#referenced-by",
+    "title": "product_batches",
+    "section": "Referenced By",
+    "text": "Referenced By\n\nproduct_ferments\nproduct_inputs\nproduct_bombs"
+  },
+  {
+    "objectID": "pages/database/tables/batches/product_batches.html#references",
+    "href": "pages/database/tables/batches/product_batches.html#references",
+    "title": "product_batches",
+    "section": "References",
+    "text": "References\n\nproduct_types.code"
+  },
+  {
+    "objectID": "pages/database/tables/batches/product_batches.html#columns",
+    "href": "pages/database/tables/batches/product_batches.html#columns",
+    "title": "product_batches",
+    "section": "Columns",
+    "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
+  },
+  {
+    "objectID": "pages/database/tables/batches/powder_batches.html",
+    "href": "pages/database/tables/batches/powder_batches.html",
+    "title": "powder_batches",
+    "section": "",
+    "text": "To track all batches of Dry Microbial Powder and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/powder_batches.html#purpose",
+    "href": "pages/database/tables/batches/powder_batches.html#purpose",
+    "title": "powder_batches",
+    "section": "",
+    "text": "To track all batches of Dry Microbial Powder and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/powder_batches.html#referenced-by",
+    "href": "pages/database/tables/batches/powder_batches.html#referenced-by",
+    "title": "powder_batches",
+    "section": "Referenced By",
+    "text": "Referenced By\n\npowder_stabilizeds\nbomb_powders"
+  },
+  {
+    "objectID": "pages/database/tables/batches/powder_batches.html#references",
+    "href": "pages/database/tables/batches/powder_batches.html#references",
+    "title": "powder_batches",
+    "section": "References",
+    "text": "References\n\nstabilized_types.code"
+  },
+  {
+    "objectID": "pages/database/tables/batches/powder_batches.html#columns",
+    "href": "pages/database/tables/batches/powder_batches.html#columns",
+    "title": "powder_batches",
+    "section": "Columns",
+    "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
+  },
+  {
+    "objectID": "pages/database/tables/batches/ferment_batches.html",
+    "href": "pages/database/tables/batches/ferment_batches.html",
+    "title": "ferment_batches",
+    "section": "",
+    "text": "To track all batches of Ferment and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/ferment_batches.html#purpose",
+    "href": "pages/database/tables/batches/ferment_batches.html#purpose",
+    "title": "ferment_batches",
+    "section": "",
+    "text": "To track all batches of Ferment and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/ferment_batches.html#referenced-by",
+    "href": "pages/database/tables/batches/ferment_batches.html#referenced-by",
+    "title": "ferment_batches",
+    "section": "Referenced By",
+    "text": "Referenced By\n\nproduct_ferments\nstabilized_ferments"
+  },
+  {
+    "objectID": "pages/database/tables/batches/ferment_batches.html#references",
+    "href": "pages/database/tables/batches/ferment_batches.html#references",
+    "title": "ferment_batches",
+    "section": "References",
+    "text": "References\n\nmedia_types.media_name\nmicrobe_types.code\nsecondary_batches.batch"
+  },
+  {
+    "objectID": "pages/database/tables/batches/ferment_batches.html#columns",
+    "href": "pages/database/tables/batches/ferment_batches.html#columns",
+    "title": "ferment_batches",
+    "section": "Columns",
+    "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
+  },
+  {
+    "objectID": "pages/database/history.html",
+    "href": "pages/database/history.html",
+    "title": "Development History",
+    "section": "",
+    "text": "This document explains why I designed the database the way I did by discussing the history behind various decisions. It may not have much use to other users beyond mere curiosity, but it gives me a centralized place to record that logic so that other documents won’t be bloated with it."
+  },
+  {
+    "objectID": "pages/database/database-index.html",
+    "href": "pages/database/database-index.html",
+    "title": "Database",
+    "section": "",
+    "text": "Database Tables\nThe heart of the LIMS project is the database. Though most users never interact with it directly, the front-end application is defined by the backend structure. And though the data it stores would be difficult for most people to access without the front-end application, it could theoretically be exported, moved, or connected to by other apps.\n\n\n\nLIMS Database Diagram\n\n\nintegrated security?\nsimple vs full structure diagram\nbatches vs types vs recipes vs ingredients vs cfus vs other tables\nnaming conventions! /\nstage names, full vs one-word vs abbreviation how words are combined\nOne page per table O_o maybe can combine samey tables like batches into one page? but weirdy tables like version stuff and cfu_types need their own\nShould have a how-to section: add new user view activity log add microbe add product type add new recipe version delete a batch query… things?"
+  },
+  {
+    "objectID": "pages/database/batch-numbers.html",
+    "href": "pages/database/batch-numbers.html",
+    "title": "mother_batches",
+    "section": "",
+    "text": "A database requires everything to have a unique identifier. It can supply auto-incremented ids, but these are meaningless outside of the database itself and hard for a user (me) to visually parse and interpret.\nIt’s prefereable for the ids to have some amount of human-readable meaning, so that a human can more clearly understand the data they’re working with and catch errors as they happen. Not all situations offer a way to create meaningful ids, however, and I didn’t want to force it when it didn’t make sense. Thus, there are 3 main types of unique identifiers used across the database:"
+  },
+  {
+    "objectID": "pages/database/batch-numbers.html#batch-numbers",
+    "href": "pages/database/batch-numbers.html#batch-numbers",
+    "title": "mother_batches",
+    "section": "Batch Numbers",
+    "text": "Batch Numbers\nAll stages have batches, and all batches must be distinguished from eachother somehow. The pre-LIMS paperwork system wasn’t quite as rigidly consistent as this database about the formatting, but it always broke along the lines of date and type (whether specific single microbe or combined recipe).\nBefore the LIMS system was implemented, the Final Product had two different batch numbering systems in place: - For most products, a simple 6-digit date in the format YYMMDD, plus a letter if multiple bacthes of the same type were produced in a day, so that two batches of MicroAZ-IF produced on October 14 2023 would be 231014A and 231014B - For TerraMax Dry, the letters BDSC plus a number that increased by 1 with every new batch, so that BDSC217 would be followed by BDSC218.\nThere was aparently a plan at some point int he past to shift everything to match the TerraMax Dry pattern and create unique codes for all the products off the same pattern.\nThis plan broke down because not all products could be so neatly translated, but I thought the core idea was solid. The date-based code didn’t differentiate between products because it didn’t need to; a person could look at the package and determine what the product was. But in a database this would translate to a split key, needing both the batch number and the product together to have a fully distinct identifier, and that seemed unnecessarily messy.\nInstead, I used the basic pattern from the BDSC batch numebrs to produce a set of product codes that I could add to as I needed. (See list of all product codes here)\nI then combined this code with the 6-digit date number to create a final product batch number that would be both unique and meaningful. Those MicroAZ-IF batches would now be AZ-231014A and AZ-231014B.\nThen I enxtended that same logic to all other stages, and built batch numbers around the format:\ntype-stage-date\nWhere type would be the code for the microbe, stabilized lqiuid or bomb type (again see the full list of codes here), and stage would be a one or two character abreviation.\n\nMS : Mother Stock\nWS : Working Stock\n1 : Primary Starter Culture\n2 : Secondary Starter Culture\nF : Ferment\nSL : Stabilized Liquid\nDMP : Dry Microbial Powder\nB : Bomb"
+  },
+  {
+    "objectID": "pages/database/batch-numbers.html#type-codes",
+    "href": "pages/database/batch-numbers.html#type-codes",
+    "title": "mother_batches",
+    "section": "Type Codes",
+    "text": "Type Codes\n\nProduct Codes\nType codes were required in order to construct meaningful unique batch numbers for batches of different products produced on the same day. I began constructing them according to an earlier attempt to create product codes according the the format: - microbial contents: B for Bradyrhizobium - liquid/dry: D for Dry - application type: S for Seed Treatment - conventional/green: C for conventional\nThis worked well once for BDSC but immediately breaks down when you consider products like Vertex that contain more than one microbe. But it was simple enough to fix by just using V instead, ad assuming that you can use whatever letter makes the most sense for other products."
+  },
+  {
+    "objectID": "pages/database/batch-numbers.html#integer-ids",
+    "href": "pages/database/batch-numbers.html#integer-ids",
+    "title": "mother_batches",
+    "section": "Integer IDs",
+    "text": "Integer IDs"
+  },
+  {
+    "objectID": "pages/application/data-structures/data-structures-index.html",
+    "href": "pages/application/data-structures/data-structures-index.html",
+    "title": "Data Structures",
+    "section": "",
+    "text": "This set of documents discusses the structure of data in the C# WPF LIMS application.\nThe original LIMS data objects were much more deeply intertwined, so that a ProductBatches object contained the full objects for all its ingredients. This was based off tutorials I’d seen of much simpler data sets, when I was still very inexperienced with application development. Since then I’ve done work in TyeScript and React that has made me more thoughtful and intentional about the costs of reduncant fetching and about data structures in general, and I now believe it would be easier and more efficient to keep the data objects simple, and do the work of connecting up foreign keys later as needed.\nMy general principle is to only make the connections one layer deep; that is, data from one table can only have properties that are full data objects from other tables when that data doesn’t have it’s own sub-objects. The data from one table must belong exlusively to one other table, no interconnecting structures. Examples: - FermentBatch owns FermentCFU - ProductBatch fully owns ProductFerments, ProductBombs and ProductInputs\nTables that belong to other tables aren’t fetched independently; they are only properties of the data objects that own them.\nThe underlying logic of the database, however, still informs the data objects. Thus, like with the database, there are these main types of objects:"
+  },
+  {
+    "objectID": "pages/application/data-structures/data-structures-index.html#parent-classes",
+    "href": "pages/application/data-structures/data-structures-index.html#parent-classes",
+    "title": "Data Structures",
+    "section": "Parent Classes",
+    "text": "Parent Classes\n\nNameType\nCodeNameType (NameType)"
+  },
+  {
+    "objectID": "pages/application/data-structures/data-structures-index.html#final-classes",
+    "href": "pages/application/data-structures/data-structures-index.html#final-classes",
+    "title": "Data Structures",
+    "section": "Final Classes",
+    "text": "Final Classes\n\nInputType (NameType)\nMediaType (NameType)\nMicrobeType (CodeNameType)\nStabilizedType (CodeNameType)\nBombType (CodeNameType)\nProductType (CodeNameType)"
+  },
+  {
+    "objectID": "pages/application/data-structures/data-structures-index.html#parent-classes-1",
+    "href": "pages/application/data-structures/data-structures-index.html#parent-classes-1",
+    "title": "Data Structures",
+    "section": "Parent Classes",
+    "text": "Parent Classes\n\nStageBatch\nBatchWithParent (StageBatch)\nBatchWithIngredients (StageBatch)"
+  },
+  {
+    "objectID": "pages/application/data-structures/data-structures-index.html#final-classes-1",
+    "href": "pages/application/data-structures/data-structures-index.html#final-classes-1",
+    "title": "Data Structures",
+    "section": "Final Classes",
+    "text": "Final Classes\n\nMotherBatch (BatchWithParent)\nWorkingBatch (BatchWithParent)\nPrimaryBatch (BatchWithParent)\nSecondaryBatch (BatchWithParent)\nFermentBatch (BatchWithParent)\nStabilizedBatch (BatchWithIngredients)\nPowderBatch (BatchWithIngredients)\nBombBatch (BatchWithIngredients)\nProductBatch (BatchWithIngredients)"
+  },
+  {
+    "objectID": "pages/application/application-index.html",
+    "href": "pages/application/application-index.html",
+    "title": "Application",
+    "section": "",
+    "text": "This set of documents explains the refactored version of the LIMS WPF.\nI decided not to document the original WPF because it wouldn’t be worth the time and effort given that I intend to refactor it anyway. I do also someday hope to refactor out of WPF and into Tauri, but that is a very long-term project that will require me to learn a lot more about Rust before I can start. A middle-term refactor has seemed increasingly necessary as new needs emerged, and documenting the structure as I rebuild it is a way to plan and be intentional about it.\nData Structures"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "LIMS Project Docs",
+    "section": "",
+    "text": "The LIMS (Laboratory Inventory Management System) is a user-facing application that runs on users’ individual computers and connects to a central database so they can view, edit, and add new data about TerraMax production. It mirrors an older system of paper forms to record the same data in a way that makes it easier to look up\nIt consists of two components:\n\nThe user-facing application, using C# and xaml in the WPF framework and .NET platform.\nThe backend database, stored in a SQL Server Express 2019 database on a local server machine.\n\n\nThis documentation is organized into three sections:\nUser Resources is for non-technical users who want a reference for how to set up, use, or troubleshoot the application.\nDatabase is for anyone who wants to dig a bit deeper into the backend, whether to actively work on maintenance or updates, or just to understand the structure. Some parts will require knowledge of relational databases or SQL, but some parts are meant to be accessible to curious or ambitious non-technical users.\nApplication is for those who want to interact directly with the code of the front-end app to make repairs or updates. This will all be fairly technical and require programming knowledge.\n\n\nThis is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html",
+    "href": "pages/application/data-structures/batch-classes.html",
+    "title": "Batch Classes",
+    "section": "",
+    "text": "This document describes the structure of the batch classes in the C# WPF LIMS application."
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#stagebatch",
+    "href": "pages/application/data-structures/batch-classes.html#stagebatch",
+    "title": "Batch Classes",
+    "section": "StageBatch",
+    "text": "StageBatch\npublic class StageBatch\n{\n    public string Batch { get; set; } = null!;\n    public string TypeCode { get; set; } = null!;\n    public string? Initials { get; set; }\n    public DateTime StartDate { get; set; }\n    public string? Notes { get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#batchwithparent",
+    "href": "pages/application/data-structures/batch-classes.html#batchwithparent",
+    "title": "Batch Classes",
+    "section": "BatchWithParent",
+    "text": "BatchWithParent\npublic class BatchWithParent : StageBatch\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public string ParentBatch { get; set; } = null!;\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#batchwithingredients",
+    "href": "pages/application/data-structures/batch-classes.html#batchwithingredients",
+    "title": "Batch Classes",
+    "section": "BatchWithIngredients",
+    "text": "BatchWithIngredients\npublic class BatchWithIngredients : StageBatch\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public IEnumerable&lt;BatchIngredient&gt;? Inputs { get; set; }\n    public IEnumerable&lt;BatchIngredient&gt;? MicrobialIngredients { get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#motherbatch",
+    "href": "pages/application/data-structures/batch-classes.html#motherbatch",
+    "title": "Batch Classes",
+    "section": "MotherBatch",
+    "text": "MotherBatch\npublic class MotherBatch : StageBatch\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public int Qty {get; set; }\n    public int QtyRemaining { get; set; }   \n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#workingbatch",
+    "href": "pages/application/data-structures/batch-classes.html#workingbatch",
+    "title": "Batch Classes",
+    "section": "WorkingBatch",
+    "text": "WorkingBatch\npublic class WorkingBatch : BatchWithParent\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public string ParentBatch { get; set; } = null!;// From BatchWithParent\n    public string? Location { get; set; }\n    public DateTime? CheckDate { get; set; }\n    public int? Qty { get; set; }\n    public int? QtyRemaining { get; set; }\n    public string? CheckInitials { get; set; }\n    public bool? Pass {  get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#primarybatch",
+    "href": "pages/application/data-structures/batch-classes.html#primarybatch",
+    "title": "Batch Classes",
+    "section": "PrimaryBatch",
+    "text": "PrimaryBatch\npublic class PrimaryBatch : BatchWithParent\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public string ParentBatch { get; set; } = null!;// From BatchWithParent\n    public string MediaType { get; set; } = null!;\n    public string MediaBatch { get; set; } = null!;\n    public DateTime? CheckDate { get; set; }\n    public string? CheckInitials {  get; set; }\n    public bool? Empty { get; set; }\n    public bool? Pass { get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#secondarybatch",
+    "href": "pages/application/data-structures/batch-classes.html#secondarybatch",
+    "title": "Batch Classes",
+    "section": "SecondaryBatch",
+    "text": "SecondaryBatch\npublic class SecondaryBatch : BatchWithParent\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public string ParentBatch { get; set; } = null!;// From BatchWithParent\n    public string MediaType { get; set; } = null!;\n    public string MediaBatch { get; set; } = null!;\n    public DateTime? CheckDate { get; set; }\n    public string? CheckInitials {  get; set; }\n    public bool? Empty { get; set; }\n    public bool? Pass { get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#fermentbatch",
+    "href": "pages/application/data-structures/batch-classes.html#fermentbatch",
+    "title": "Batch Classes",
+    "section": "FermentBatch",
+    "text": "FermentBatch\npublic class FermentBatch : BatchWithParent\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public string ParentBatch { get; set; } = null!;// From BatchWithParent\n    public string MediaType { get; set; } = null!;\n    public string MediaBatch { get; set; } = null!;\n    public DateTime? CheckDate { get; set; }\n    public string? CheckInitials { get; set; }\n    public bool? Pass {  get; set; }\n    public decimal? Qty { get; set; } \n    public decimal? QtyRemaining { get; set; }\n    public IEnumerable&lt;SimpleCfu&gt;? Cfus {  get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/batch-classes.html#stabilizedbatch",
+    "href": "pages/application/data-structures/batch-classes.html#stabilizedbatch",
+    "title": "Batch Classes",
+    "section": "StabilizedBatch",
+    "text": "StabilizedBatch\npublic class StabilizedBatch : BatchWithIngredients\n{\n    public string Batch { get; set; } = null!;      // From StageBatch\n    public string TypeCode { get; set; } = null!;   // From StageBatch\n    public string? Initials { get; set; }           // From StageBatch\n    public DateTime StartDate { get; set; }         // From StageBatch\n    public string? Notes { get; set; }              // From StageBatch\n    public string SourceAll { get; set; } = null!;\n    public string SourceRemaining { get; set; } = null!;\n    public decimal? Qty { get; set; }\n    public decimal? QtyRemaining { get; set; }\n    public string Unit { get; set; } = null!;\n    public DateTime StartTime { get; set; }\n    public IEnumerable&lt;BatchIngredient&gt;? Inputs { get; set; }   // From BatchWithIngredients\n    public IEnumerable&lt;BatchIngredient&gt;? MicrobialIngredients { get; set; }   // From BatchWithIngredients\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html",
+    "href": "pages/application/data-structures/type-classes.html",
+    "title": "Types Classes",
+    "section": "",
+    "text": "This document decribes the structure of the type classes in the C# WPF LIMS application."
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#nametype",
+    "href": "pages/application/data-structures/type-classes.html#nametype",
+    "title": "Types Classes",
+    "section": "NameType",
+    "text": "NameType\npublic class NameType\n{\n    public string Name { get; set; } = null!;\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#codenametype",
+    "href": "pages/application/data-structures/type-classes.html#codenametype",
+    "title": "Types Classes",
+    "section": "CodeNameType",
+    "text": "CodeNameType\npublic class CodeNameType : CodeNameType\n{\n    public string Name { get; set; } = null!; // From NameType\n    public string Code { get; set; } = null!;    \n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#inputtype",
+    "href": "pages/application/data-structures/type-classes.html#inputtype",
+    "title": "Types Classes",
+    "section": "InputType",
+    "text": "InputType\npublic class InputType : NameType\n{\n    public string Name { get; set; } = null!; // From NameType\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#mediatype",
+    "href": "pages/application/data-structures/type-classes.html#mediatype",
+    "title": "Types Classes",
+    "section": "MediaType",
+    "text": "MediaType\nUsed by PrimaryBatch, SecondaryBatch, and FermentBatch\npublic class MediaType : NameType\n{\n    public string Name { get; set; } = null!; // From NameType\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#microbetype",
+    "href": "pages/application/data-structures/type-classes.html#microbetype",
+    "title": "Types Classes",
+    "section": "MicrobeType",
+    "text": "MicrobeType\nDefines type of MotherBatch, WorkingBatch, PrimaryBatch, SecondaryBatch, and FermentBatch\npublic class MicrobeType : CodeNameType\n{\n    public string Name { get; set; } = null!; // From NameType\n    public string Code { get; set; } = null!; // From CodeNameType\n    public TimeSpan StockShelfLife { get; set; }\n    public TimeSpan StarterShelfLife { get; set; }\n    public TimeSpan FermentShelfLife { get; set; }\n    public string? StarterMedia { get; set; }\n    public string? FermentMedia {get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#stabilizedtype",
+    "href": "pages/application/data-structures/type-classes.html#stabilizedtype",
+    "title": "Types Classes",
+    "section": "StabilizedType",
+    "text": "StabilizedType\nDefines StabilizedBatch and PowderBatch\npublic class StabilizedType : CodeNameType\n{\n    public string Name { get; set; } = null!; // From NameType\n    public string Code { get; set; } = null!; // From CodeNameType\n    public decimal DefaultStabilizedQty { get; set; }\n    public decimal DefaultPowderQty { get; set; }\n    public string Unit { get; set; } = null!;\n    public int StabilizedShelfLife { get; set; }\n    public int PowderShelfLife { get; set; }\n    public IEnumerable&lt;RecipeIngredient&gt;? StabilizedFermentRecipes { get; set; }\n    public IEnumerable&lt;RecipeIngredient&gt;? StabilizedInputRecipes { get; set; }\n    public IEnumerable&lt;RecipeIngredient&gt;? PowderInputRecipes { get; set; }\n}"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#bombtype",
+    "href": "pages/application/data-structures/type-classes.html#bombtype",
+    "title": "Types Classes",
+    "section": "BombType",
+    "text": "BombType"
+  },
+  {
+    "objectID": "pages/application/data-structures/type-classes.html#producttype",
+    "href": "pages/application/data-structures/type-classes.html#producttype",
+    "title": "Types Classes",
+    "section": "ProductType",
+    "text": "ProductType"
+  },
+  {
+    "objectID": "pages/database/change-tracking.html",
+    "href": "pages/database/change-tracking.html",
+    "title": "Change Tracking",
+    "section": "",
+    "text": "Batch and ingredient tables have internal tracking fields with data that is not externally shown in the application.\nThe earliest conception of LIMS was based only on the data being tracked in the existing paperwork, and so things like date and initials were left as entry fields where the user could set them manually. But sometimes a user might enter data on a different day than they did the work, or on behalf of a different user and mark the other person’s initials for them.\nIt seemed reasonable to leave that system in place since it was suited to tracking the work, but I later realized that I also wanted to track changes to the database.\nLIMS update 3.6 on 2/20/2024 implemented the client side of this tracking feature, and modified the various write functions to long this tracking data to new tracking fields. For this reason, batches from before that point will have nulls in these fields.\nThese fields are found in:\n\nworking_batches\nprimary_batches\nsecondary_batches\nferment_batches\n[]\n\nThe fields are:\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\ndate_created\ndatetime\n-\nThe exact date and time when the row was writen to the database\n\n\ncreated_by\nvarchar(50)\n-\nThe Microsoft user identity of the login that made the entry\n\n\ndate_edited\ndatetime\n-\nThe exact date and time when the row was last edited\n\n\nedited_by\nvarchar(50)\n-\nThe Microsoft user identity of the login that made the last edit"
+  },
+  {
     "objectID": "pages/database/database-tables.html",
     "href": "pages/database/database-tables.html",
     "title": "bomb_types",
@@ -224,60 +595,39 @@
     "text": "Other Tables"
   },
   {
-    "objectID": "pages/database/change-tracking.html",
-    "href": "pages/database/change-tracking.html",
-    "title": "Change Tracking",
+    "objectID": "pages/database/tables/batches/bomb_batches.html",
+    "href": "pages/database/tables/batches/bomb_batches.html",
+    "title": "bomb_batches",
     "section": "",
-    "text": "Batch and ingredient tables have internal tracking fields with data that is not externally shown in the application.\nThe earliest conception of LIMS was based only on the data being tracked in the existing paperwork, and so things like date and initials were left as entry fields where the user could set them manually. But sometimes a user might enter data on a different day than they did the work, or on behalf of a different user and mark the other person’s initials for them.\nIt seemed reasonable to leave that system in place since it was suited to tracking the work, but I later realized that I also wanted to track changes to the database.\nLIMS update 3.6 on 2/20/2024 implemented the client side of this tracking feature, and modified the various write functions to long this tracking data to new tracking fields. For this reason, batches from before that point will have nulls in these fields.\nThese fields are found in:\n\nworking_batches\nprimary_batches\nsecondary_batches\nferment_batches\n[]\n\nThe fields are:\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\ndate_created\ndatetime\n-\nThe exact date and time when the row was writen to the database\n\n\ncreated_by\nvarchar(50)\n-\nThe Microsoft user identity of the login that made the entry\n\n\ndate_edited\ndatetime\n-\nThe exact date and time when the row was last edited\n\n\nedited_by\nvarchar(50)\n-\nThe Microsoft user identity of the login that made the last edit"
+    "text": "To track all batches of Bombs and data about their production."
   },
   {
-    "objectID": "pages/application/application-index.html",
-    "href": "pages/application/application-index.html",
-    "title": "Application",
+    "objectID": "pages/database/tables/batches/bomb_batches.html#purpose",
+    "href": "pages/database/tables/batches/bomb_batches.html#purpose",
+    "title": "bomb_batches",
     "section": "",
-    "text": "Applciation stuff"
+    "text": "To track all batches of Bombs and data about their production."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "LIMS Project Docs",
-    "section": "",
-    "text": "The LIMS (Laboratory Inventory Management System) is a user-facing application that runs on users’ individual computers and connects to a central database so they can view, edit, and add new data about TerraMax production. It mirrors an older system of paper forms to record the same data in a way that makes it easier to look up\nIt consists of two components:\n\nThe user-facing application, using C# and xaml in the WPF framework and .NET platform.\nThe backend database, stored in a SQL Server Express 2019 database on a local server machine.\n\n\nThis documentation is organized into three sections:\nUser Resources is for non-technical users who want a reference for how to set up, use, or troubleshoot the application.\nDatabase is for anyone who wants to dig a bit deeper into the backend, whether to actively work on maintenance or updates, or just to understand the structure. Some parts will require knowledge of relational databases or SQL, but some parts are meant to be accessible to curious or ambitious non-technical users.\nApplication is for those who want to interact directly with the code of the front-end app to make repairs or updates. This will all be fairly technical and require programming knowledge.\n\n\nThis is a Quarto website. To learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "objectID": "pages/database/tables/batches/bomb_batches.html#referenced-by",
+    "href": "pages/database/tables/batches/bomb_batches.html#referenced-by",
+    "title": "bomb_batches",
+    "section": "Referenced By",
+    "text": "Referenced By\n\nbomb_powders\nproduct_bombs"
   },
   {
-    "objectID": "pages/database/batch-numbers.html",
-    "href": "pages/database/batch-numbers.html",
-    "title": "mother_batches",
-    "section": "",
-    "text": "A database requires everything to have a unique identifier. It can supply auto-incremented ids, but these are meaningless outside of the database itself and hard for a user (me) to visually parse and interpret.\nIt’s prefereable for the ids to have some amount of human-readable meaning, so that a human can more clearly understand the data they’re working with and catch errors as they happen. Not all situations offer a way to create meaningful ids, however, and I didn’t want to force it when it didn’t make sense. Thus, there are 3 main types of unique identifiers used across the database:"
+    "objectID": "pages/database/tables/batches/bomb_batches.html#references",
+    "href": "pages/database/tables/batches/bomb_batches.html#references",
+    "title": "bomb_batches",
+    "section": "References",
+    "text": "References\n\nbomb_types.code"
   },
   {
-    "objectID": "pages/database/batch-numbers.html#batch-numbers",
-    "href": "pages/database/batch-numbers.html#batch-numbers",
-    "title": "mother_batches",
-    "section": "Batch Numbers",
-    "text": "Batch Numbers\nAll stages have batches, and all batches must be distinguished from eachother somehow. The pre-LIMS paperwork system wasn’t quite as rigidly consistent as this database about the formatting, but it always broke along the lines of date and type (whether specific single microbe or combined recipe).\nBefore the LIMS system was implemented, the Final Product had two different batch numbering systems in place: - For most products, a simple 6-digit date in the format YYMMDD, plus a letter if multiple bacthes of the same type were produced in a day, so that two batches of MicroAZ-IF produced on October 14 2023 would be 231014A and 231014B - For TerraMax Dry, the letters BDSC plus a number that increased by 1 with every new batch, so that BDSC217 would be followed by BDSC218.\nThere was aparently a plan at some point int he past to shift everything to match the TerraMax Dry pattern and create unique codes for all the products off the same pattern.\nThis plan broke down because not all products could be so neatly translated, but I thought the core idea was solid. The date-based code didn’t differentiate between products because it didn’t need to; a person could look at the package and determine what the product was. But in a database this would translate to a split key, needing both the batch number and the product together to have a fully distinct identifier, and that seemed unnecessarily messy.\nInstead, I used the basic pattern from the BDSC batch numebrs to produce a set of product codes that I could add to as I needed. (See list of all product codes here)\nI then combined this code with the 6-digit date number to create a final product batch number that would be both unique and meaningful. Those MicroAZ-IF batches would now be AZ-231014A and AZ-231014B.\nThen I enxtended that same logic to all other stages, and built batch numbers around the format:\ntype-stage-date\nWhere type would be the code for the microbe, stabilized lqiuid or bomb type (again see the full list of codes here), and stage would be a one or two character abreviation.\n\nMS : Mother Stock\nWS : Working Stock\n1 : Primary Starter Culture\n2 : Secondary Starter Culture\nF : Ferment\nSL : Stabilized Liquid\nDMP : Dry Microbial Powder\nB : Bomb"
-  },
-  {
-    "objectID": "pages/database/batch-numbers.html#type-codes",
-    "href": "pages/database/batch-numbers.html#type-codes",
-    "title": "mother_batches",
-    "section": "Type Codes",
-    "text": "Type Codes\n\nProduct Codes\nType codes were required in order to construct meaningful unique batch numbers for batches of different products produced on the same day. I began constructing them according to an earlier attempt to create product codes according the the format: - microbial contents: B for Bradyrhizobium - liquid/dry: D for Dry - application type: S for Seed Treatment - conventional/green: C for conventional\nThis worked well once for BDSC but immediately breaks down when you consider products like Vertex that contain more than one microbe. But it was simple enough to fix by just using V instead, ad assuming that you can use whatever letter makes the most sense for other products."
-  },
-  {
-    "objectID": "pages/database/batch-numbers.html#integer-ids",
-    "href": "pages/database/batch-numbers.html#integer-ids",
-    "title": "mother_batches",
-    "section": "Integer IDs",
-    "text": "Integer IDs"
-  },
-  {
-    "objectID": "pages/database/database-index.html",
-    "href": "pages/database/database-index.html",
-    "title": "Database",
-    "section": "",
-    "text": "Database Tables\nDatabase stuff…\nintegrated security?\nsimple vs full structure diagram\nbatches vs types vs recipes vs ingredients vs cfus vs other tables\nnaming conventions! /\nstage names, full vs one-word vs abbreviation how words are combined\nOne page per table O_o maybe can combine samey tables like batches into one page? but weirdy tables like version stuff and cfu_types need their own\nShould have a how-to section: add new user view activity log add microbe add product type add new recipe version delete a batch query… things?"
+    "objectID": "pages/database/tables/batches/bomb_batches.html#columns",
+    "href": "pages/database/tables/batches/bomb_batches.html#columns",
+    "title": "bomb_batches",
+    "section": "Columns",
+    "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
   },
   {
     "objectID": "pages/database/tables/batches/mother_batches.html",
@@ -306,6 +656,13 @@
     "title": "mother_batches",
     "section": "References",
     "text": "References\n\nmicrobe_types.code"
+  },
+  {
+    "objectID": "pages/database/tables/batches/mother_batches.html#primary-key",
+    "href": "pages/database/tables/batches/mother_batches.html#primary-key",
+    "title": "mother_batches",
+    "section": "Primary Key",
+    "text": "Primary Key\nThe batch number is used as the primary key. Later stages had more organic batch numbering systems that could be coopted by the LIMS system, but in the case of mother and working stocks, different batches were only differentiated by the date they were made.\nTo create batch numbers that could work in LIMS, I translated those dates into the YYMMDD format used elsewhere, and added"
   },
   {
     "objectID": "pages/database/tables/batches/mother_batches.html#columns",
@@ -350,37 +707,65 @@
     "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
   },
   {
-    "objectID": "pages/database/tables/batches/working_batches.html",
-    "href": "pages/database/tables/batches/working_batches.html",
-    "title": "working_batches",
+    "objectID": "pages/database/tables/batches/secondary_batches.html",
+    "href": "pages/database/tables/batches/secondary_batches.html",
+    "title": "secondary_batches",
     "section": "",
-    "text": "To track all batches of Working Stock and data about their production."
+    "text": "To track all batches of Secondary Starter Culture and data about their production."
   },
   {
-    "objectID": "pages/database/tables/batches/working_batches.html#purpose",
-    "href": "pages/database/tables/batches/working_batches.html#purpose",
-    "title": "working_batches",
+    "objectID": "pages/database/tables/batches/secondary_batches.html#purpose",
+    "href": "pages/database/tables/batches/secondary_batches.html#purpose",
+    "title": "secondary_batches",
     "section": "",
-    "text": "To track all batches of Working Stock and data about their production."
+    "text": "To track all batches of Secondary Starter Culture and data about their production."
+  },
+  {
+    "objectID": "pages/database/tables/batches/secondary_batches.html#referenced-by",
+    "href": "pages/database/tables/batches/secondary_batches.html#referenced-by",
+    "title": "secondary_batches",
+    "section": "Referenced By",
+    "text": "Referenced By\n\nferment_batches"
+  },
+  {
+    "objectID": "pages/database/tables/batches/secondary_batches.html#references",
+    "href": "pages/database/tables/batches/secondary_batches.html#references",
+    "title": "secondary_batches",
+    "section": "References",
+    "text": "References\n\nmedia_types.media_name\nmicrobe_types.code\nprimary_batches.batch"
+  },
+  {
+    "objectID": "pages/database/tables/batches/secondary_batches.html#columns",
+    "href": "pages/database/tables/batches/secondary_batches.html#columns",
+    "title": "secondary_batches",
+    "section": "Columns",
+    "text": "Columns\n\n\n\n\n\n\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(21)\nprimary key, not null\nThe unique identifier for other tables to reference\n\n\nmicrobe_code\n-\n-\n-\n\n\nworking_batch\n-\n-\n-\n\n\nmedia_type\n-\n-\n-\n\n\nmedia_batch\n-\n-\n-\n\n\nqty\n-\n-\n-\n\n\nqty_remaining\n-\n-\n-\n\n\nstart_date\n-\n-\n-\n\n\ninitials\n-\n-\n-\n\n\nlocation\n-\n-\n-\n\n\ncheck_date\n-\n-\n-\n\n\ncheck_initials\n-\n-\n-\n\n\npass\n-\n-\n-\n\n\nnotes\n-\n-\n-"
+  },
+  {
+    "objectID": "pages/database/tables/batches/working_batches.html",
+    "href": "pages/database/tables/batches/working_batches.html",
+    "title": "LIMS Project Docs",
+    "section": "",
+    "text": "primary_batches"
   },
   {
     "objectID": "pages/database/tables/batches/working_batches.html#referenced-by",
     "href": "pages/database/tables/batches/working_batches.html#referenced-by",
-    "title": "working_batches",
-    "section": "Referenced By",
-    "text": "Referenced By\n\nprimary_batches"
+    "title": "LIMS Project Docs",
+    "section": "",
+    "text": "primary_batches"
   },
   {
     "objectID": "pages/database/tables/batches/working_batches.html#references",
     "href": "pages/database/tables/batches/working_batches.html#references",
-    "title": "working_batches",
+    "title": "LIMS Project Docs",
     "section": "References",
     "text": "References\n\nmicrobe_types.code\nmother_batches.batch"
   },
   {
     "objectID": "pages/database/tables/batches/working_batches.html#columns",
     "href": "pages/database/tables/batches/working_batches.html#columns",
-    "title": "working_batches",
+    "title": "LIMS Project Docs",
     "section": "Columns",
     "text": "Columns\n\n\n\ncolumn name\ndata type\nconstraints\npurpose\n\n\n\n\nbatch\nvarchar(20)\nPrimary Key, Not Null\nTo be the unique identifier for other tables to reference. It’s assumed that working stocks made on the same day will have have the same batch number.\n\n\nmicrobe_code\nvarchar(10)\nForeign Key, Not Null\nWhich microbe; references the microbe_types table and connects the microbe-specific data there.\n\n\nmother_batch\nvarchar(20)\nForeign Key, Not Null\nWhich mother stock it was made from. References the mother_stock table and the data connected there.\n\n\nqty\ninteger\n-\nThe original number of tubes made of a given batch.\n\n\nqty_remaining\ninteger\n-\nThe remaining number of tubes available of a given batch.\n\n\nstart_date\ndatetime\nNot Null\nWhen the batch was made.\n\n\ninitials\nvarchar(4)\n-\nSignoff from whoever started the process of making the batch. 3 initials is preferred, but the simple text field does not enfore it.\n\n\nlocation\nvarchar(255)\n-\nWhich box in the freezer the tubes are located in.\n\n\ncheck_date\nvarchar(max)\n-\nThe date when the batch was checked and determined to pass.\n\n\ncheck_initials\nSignoff from whoever checked the batch to decide if it passed. 3 initials is preferred, but the simple text field does not enfore it.\n-\n-\n\n\npass\nbit\n-\nWhether the batch batches inspection check. Allowed to be null until it’s checked, then 1 for pass and 0 for fail.\n\n\nnotes\nvarchar(max)\n-\nFree text field where users can enter any other data they feel is relevant but not captured by the other fields.\n\n\ndate_created\ndatetime\n-\nInternal field to track user activity; tracks when the row was created.\n\n\ncreated_by\nvarchar(50)\n-\nInternal field to track user activity; tracks the Microsoft user identity of the login that created the row.\n\n\ndate_edited\ndatetime\n-\nInternal field to track user activity; tracks when the row was last edited.\n\n\nedited_by\nvarchar(50)\n-\nInternal field to track user activity; tracks the Microsoft user identity of the login that last edited the row."
   },

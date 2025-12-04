@@ -1,0 +1,16 @@
+---
+title: "Development History"
+format:
+    html: default
+    pdf:
+        documentclass: scrartcl
+        papersize: letter
+        mainfont: "Arial"
+        monofont: "Consolas"
+        monofontoptions: 
+            - Color=79329E
+            - Size=.75em
+---
+
+This document explains *why* I designed the database the way I did by discussing the history behind various decisions.  It may not have much use to other users beyond mere curiosity, but it gives me a centralized place to record that logic so that other documents won't be bloated with it.
+

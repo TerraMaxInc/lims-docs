@@ -14,7 +14,9 @@ title: "Database"
 
 [Database Tables](database-tables.html)
 
-Database stuff...
+The heart of the LIMS project is the database.  Though most users never interact with it directly, the front-end application is defined by the backend structure.  And though the data it stores would be difficult for most people to access without the front-end application, it could theoretically be exported, moved, or connected to by other apps.  
+
+![LIMS Database Diagram](../../images/lims_db_diagram.png)
 
 integrated security?
 
